@@ -77,5 +77,20 @@ class CommentController extends Controller {
 		return redirect('/photos');
 
 	}
+
+	// Delete a comment from the database.
+
+	public function actionDelete($id){
+
+		$user = Auth::user();
+
+		$comment = Comment::where('user_id', '=', $user->id)
+			->findOrFail($id);
+
+		$comment->delete($comment);
+
+		return redirect('/photos');
+
+	}
 	
 }

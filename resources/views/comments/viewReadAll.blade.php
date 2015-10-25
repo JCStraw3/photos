@@ -16,6 +16,11 @@
 				<a href='/comments/{{ $comment->id }}/edit'>Edit Comment</a>
 			</div>
 
+			<form action='/comments/{{ $comment->id }}' method='post'>
+				<input name='_method' type='hidden' value='delete'>
+				<button type='submit'>Delete comment</button>
+			</form>
+
 		@endforeach
 
 	</div>

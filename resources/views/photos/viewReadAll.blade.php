@@ -40,6 +40,11 @@
 					@foreach($photo->comments as $comment)
 						{{ $comment->comment }}
 
+						<form action='/comments/{{ $comment->id }}' method='post'>
+							<input name='_method' type='hidden' value='delete'>
+							<button type='submit'>Delete comment</button>
+						</form>
+
 						<br />
 					@endforeach
 				</div>
