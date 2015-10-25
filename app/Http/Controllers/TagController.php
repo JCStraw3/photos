@@ -41,7 +41,15 @@ class TagController extends Controller {
 
 	// View the page to read one tag.
 
-	public function viewReadOne(){
+	public function viewReadOne($id){
+
+		$user = Auth::user();
+
+		$tag = Tag::findOrFail($id);
+
+		return view('tags.viewReadOne')
+			->with('tag', $tag)
+			->with('user', $user);
 
 	}
 
