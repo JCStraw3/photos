@@ -35,6 +35,8 @@
 			<div>
 				@foreach($photo->comments as $comment)
 					{{ $comment->comment }}
+
+					<br />
 				@endforeach
 			</div>
 

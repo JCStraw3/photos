@@ -55,4 +55,8 @@ Route::delete('tags/{id}', 'TagController@actionDelete');
 
 // Comment routes.
 
+Route::get('comments', 'CommentController@viewReadAll');
+Route::get('comments/{id}/edit', 'CommentController@viewUpdate');
 Route::post('comments', 'CommentController@actionCreate');
+Route::put('comments/{id}', 'CommentController@actionUpdate');
+Route::delete('comments/{id}', 'CommentController@actionDelete');

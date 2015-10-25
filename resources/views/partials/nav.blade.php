@@ -24,6 +24,10 @@
 
 	<span> | </span>
 
+	<a href='/comments'>Comments</a>
+
+	<span> | </span>
+
 	<a href='/auth/logout'>Logout</a>
 
 </div>

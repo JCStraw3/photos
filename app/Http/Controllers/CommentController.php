@@ -13,9 +13,41 @@ use Auth;
 
 class CommentController extends Controller {
 
+// Views
+
+	// View all comments by a specific user.
+
+	public function viewReadAll(){
+
+		$user = Auth::user();
+
+		$comments = Comment::where('user_id', '=', $user->id)
+			->latest('id')
+			->get();
+
+		return view('comments.viewReadAll')
+			->with('comments', $comments)
+			->with('user', $user);
+
+	}
+
+	// View page to edit a comment.
+
+	public function viewUpdate($id){
+
+		$user = Auth::user();
+
+		$comment = Comment::findOrFail($id);
+
+		return view('comments.viewUpdate')
+			->with('comment', $comment)
+			->with('user', $user);
+
+	}
+
 // Actions
 
-	// Create a comment.
+	// Create a comment in the database.
 
 	public function actionCreate(Requests\CreateCommentRequest $request){
 
@@ -26,6 +58,21 @@ class CommentController extends Controller {
 		$comment = $photo->comments()->save($comment);
 
 		Auth::user()->comments()->save($comment);
+
+		return redirect('/photos');
+
+	}
+
+	// Uodate a comment in the database.
+
+	public function actionUpdate($id, Requests\UpdateCommentRequest $request){
+
+		$user = Auth::user();
+
+		$comment = Comment::where('user_id', '=', $user->id)
+			->findOrFail($id);
+
+		$comment->update($request->all());
 
 		return redirect('/photos');
 
