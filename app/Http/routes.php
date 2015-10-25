@@ -26,6 +26,19 @@ Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
 Route::get('auth/logout', 'Auth\AuthController@getLogout');
 
+// User routes.
+
+Route::get('user/{id}', 'UserController@viewReadOne');
+Route::get('user/{id}/edit', 'UserController@viewUpdate');
+Route::post('user/{id}', 'UserController@actionUploadImage');
+Route::put('user/{id}', 'UserController@actionUpdate');
+
 // Photo routes.
 
 Route::get('photos', 'PhotoController@viewReadAll');
+Route::get('photos/create', 'PhotoController@viewCreate');
+Route::get('photos/{id}', 'PhotoController@viewReadOne');
+Route::get('photos/{id}/edit', 'PhotoController@viewUpdate');
+Route::post('photos', 'PhotoController@actionCreate');
+Route::put('photos/{id}', 'PhotoController@actionUpdate');
+Route::delete('photos', 'PhotoController@actionDelete');
