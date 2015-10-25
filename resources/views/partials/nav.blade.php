@@ -8,6 +8,14 @@
 
 	<span> | </span>
 
+	<a href='/tags'>Tags</a>
+
+	<span> | </span>
+
+	<a href='/tags/create'>Create Tag</a>
+
+	<span> | </span>
+
 	<a href='/user/{{ $user->id }}'>{{ $user->name }}</a>
 
 	<span> | </span>

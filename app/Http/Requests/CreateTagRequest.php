@@ -21,7 +21,7 @@ class CreateTagRequest extends Request {
      */
     public function rules() {
         return [
-
+            'name' => 'required',
         ];
     }
 
