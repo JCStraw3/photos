@@ -8,7 +8,7 @@
 
 	<div>
 
-		<form action='auth/register' method='post'>
+		<form action='/auth/register' method='post'>
 
 			<input name='name' type='text' placeholder='Name'>
 			<input name='email' type='email' placeholder='Email'>
