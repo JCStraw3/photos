@@ -55,7 +55,15 @@ class TagController extends Controller {
 
 	// View the page to update a tag.
 
-	public function viewUpdate(){
+	public function viewUpdate($id){
+
+		$user = Auth::user();
+
+		$tag = Tag::findOrFail($id);
+
+		return view('tags.viewUpdate')
+			->with('tag', $tag)
+			->with('user', $user);
 
 	}
 
@@ -75,7 +83,13 @@ class TagController extends Controller {
 
 	// Update an existing tag in the database.
 
-	public function actionUpdate(){
+	public function actionUpdate($id, Requests\UpdateTagRequest $request){
+
+		$tag = Tag::findOrFail($id);
+
+		$tag->update($request->all());
+
+		return redirect('/tags/'.$tag->id);
 
 	}
 

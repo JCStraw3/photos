@@ -2,6 +2,14 @@
 
 @section('content')
 
+	<a href='/tags/{{ $tag->id }}/edit'>Edit Tag</a>
+
+	<div>
+
+		{{ $tag->name }}
+
+	</div>
+
 	<div>
 
 		@foreach($tag->photos as $photo)
