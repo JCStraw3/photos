@@ -4,6 +4,10 @@
 
 	<span> | </span>
 
+	<a href='/photos/create'>Create Photo</a>
+
+	<span> | </span>
+
 	<a href='/user/{{ $user->id }}'>{{ $user->name }}</a>
 
 	<span> | </span>
