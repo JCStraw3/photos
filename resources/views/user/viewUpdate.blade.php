@@ -5,7 +5,6 @@
 	<div>
 
 		<form action='/user/{{ $user->id }}' method='post'>
-
 			<input name='_method' type='hidden' value='put'>
 
 			<input name='name' type='text' value='{{ $user->name }}' placeholder='Name'>
@@ -15,7 +14,6 @@
 			<textarea name='description' type='text' placeholder='Description'>{{ $user->description }}</textarea>
 
 			<button type='submit'>Save</button>
-
 		</form>
 
 	</div>

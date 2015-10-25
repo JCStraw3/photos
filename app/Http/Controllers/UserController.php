@@ -8,7 +8,13 @@ use App\Http\Controllers\Controller;
 
 use App\User;
 
+use Uuid;
+
 class UserController extends Controller {
+
+// Views
+
+	// View the user profile page.
 
 	public function viewReadOne($id){
 
@@ -19,6 +25,8 @@ class UserController extends Controller {
 
 	}
 
+	// View the user edit page.
+
 	public function viewUpdate($id){
 
 		$user = User::findOrFail($id);
@@ -28,11 +36,37 @@ class UserController extends Controller {
 
 	}
 
+// Actions
+
+	// Update the user table in the database.
+
 	public function actionUpdate($id, Requests\UpdateUserRequest $request){
 
 		$user = User::findOrFail($id);
 
 		$user->update($request->all());
+
+		return redirect('/user/'.$id);
+
+	}
+
+	// Upload an image.
+
+	public function actionUploadImage($id, Requests\UploadImageRequest $request){
+
+		$user = User::findOrFail($id);
+
+		$destinationPath = 'uploads';
+
+		$extension = $request->file('image')->getClientOriginalExtension();
+
+		$fileName = Uuid::generate(4).'.'.$extension;
+
+		$request->file('image')->move($destinationPath, $fileName);
+
+		$user->image = $fileName;
+
+		$user->save();
 
 		return redirect('/user/'.$id);
 
