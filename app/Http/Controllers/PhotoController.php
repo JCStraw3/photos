@@ -113,6 +113,10 @@ class PhotoController extends Controller {
 
 		$photo->update($request->all());
 
+		$tags = $request->input('tags');
+
+		$photo->tags()->sync($tags);
+
 		return redirect('/photos/'.$photo->id);
 
 	}

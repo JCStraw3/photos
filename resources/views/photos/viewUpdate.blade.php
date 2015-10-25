@@ -13,9 +13,9 @@
 
 			<input name='title' type='text' value='{{ $photo->title }}' placeholder='Title'>
 			<textarea name='description' type='text' placeholder='Description'>{{ $photo->description }}</textarea>
-			<select name='tags'>
+			<select name='tags[]'>
 				@foreach($tags as $tag)
-					<option>{{ $tag->name }}</option>
+					<option value='{{ $tag->id }}'>{{ $tag->name }}</option>
 				@endforeach
 			</select>
 			

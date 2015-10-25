@@ -20,7 +20,7 @@
 
 		@foreach($photo->tags as $tag)
 			<div>
-				<a href='/tags/{{ $tag->id }}'>{{ $tag }}</a>
+				<a href='/tags/{{ $tag->id }}'>{{ $tag->name }}</a>
 			</div>
 		@endforeach
 
