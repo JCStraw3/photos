@@ -47,4 +47,23 @@ class User extends Model implements AuthenticatableContract,
         'password', 
         'remember_token'
     ];
+
+    // A user has many photos.
+
+    public function photos(){
+        return $this->hasMany('App\Photo');
+    }
+
+    // A user has many comments.
+
+    public function comments(){
+        return $this->hasMany('App\Comment');
+    }
+
+    // A user has many likes.
+
+    public function likes(){
+        return $this->hasMany('App\Like');
+    }
+    
 }
