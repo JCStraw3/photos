@@ -10,7 +10,8 @@
 
 		<form action='/photos' method='post' enctype='multipart/form-data'>
 			<input name='title' type='text' placeholder='Title'>
-			<input name='description' type='text' placeholder='Description'>
+			<textarea name='description' type='text' placeholder='Description'></textarea>
+
 			Select image to upload:
 			<input name='image' type='file'>
 			<input name='submit' type='submit' value='Create Photo'>

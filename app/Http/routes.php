@@ -41,4 +41,4 @@ Route::get('photos/{id}', 'PhotoController@viewReadOne');
 Route::get('photos/{id}/edit', 'PhotoController@viewUpdate');
 Route::post('photos', 'PhotoController@actionCreate');
 Route::put('photos/{id}', 'PhotoController@actionUpdate');
-Route::delete('photos', 'PhotoController@actionDelete');
+Route::delete('photos/{id}', 'PhotoController@actionDelete');

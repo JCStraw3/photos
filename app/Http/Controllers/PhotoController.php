@@ -55,7 +55,15 @@ class PhotoController extends Controller {
 
 	// View photo edit page.
 
-	public function viewUpdate(){
+	public function viewUpdate($id){
+
+		$user = Auth::user();
+
+		$photo = Photo::findOrFail($id);
+
+		return view('photos.viewUpdate')
+			->with('photo', $photo)
+			->with('user', $user);
 
 	}
 
@@ -85,13 +93,31 @@ class PhotoController extends Controller {
 
 	// Update a photo in the database.
 
-	public function actionUpdate(){
+	public function actionUpdate($id, Requests\UpdatePhotoRequest $request){
+
+		$user = Auth::user();
+
+		$photo = Photo::where('user_id', '=', $user->id)
+			->findOrFail($id);
+
+		$photo->update($request->all());
+
+		return redirect('/photos/'.$photo->id);
 
 	}
 
 	// Delete a photo from the database.
 
-	public function actionDelete(){
+	public function actionDelete($id){
+
+		$user = Auth::user();
+
+		$photo = Photo::where('user_id', '=', $user->id)
+			->findOrFail($id);
+
+		$photo->delete($photo);
+
+		return redirect('photos');
 
 	}	
 
