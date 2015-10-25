@@ -52,3 +52,7 @@ Route::get('tags/{id}/edit', 'TagController@viewUpdate');
 Route::post('tags', 'TagController@actionCreate');
 Route::put('tags/{id}', 'TagController@actionUpdate');
 Route::delete('tags/{id}', 'TagController@actionDelete');
+
+// Comment routes.
+
+Route::post('comments', 'CommentController@actionCreate');

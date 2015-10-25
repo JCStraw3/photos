@@ -2,6 +2,10 @@
 
 @section('content')
 
+	<h2>Tags</h2>
+
+	<hr />
+
 	<div>
 
 		@foreach($tags as $tag)

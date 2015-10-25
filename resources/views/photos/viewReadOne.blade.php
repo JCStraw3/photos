@@ -29,6 +29,22 @@
 			<button type='submit'>Delete photo</button>
 		</form>
 
+		<div>
+			<p>Comments:</p>
+
+			<div>
+				@foreach($photo->comments as $comment)
+					{{ $comment->comment }}
+				@endforeach
+			</div>
+
+			<form action='/comments' method='post'>
+				<input name='photo_id' type='hidden' value='{{ $photo->id }}'>
+				<textarea name='comment' placeholder='Comment'></textarea>
+				<button type='submit'>Comment</button>
+			</form>
+		</div>
+
 	</div>
 
 @endsection

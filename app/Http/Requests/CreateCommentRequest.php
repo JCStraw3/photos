@@ -21,7 +21,7 @@ class CreateCommentRequest extends Request {
      */
     public function rules() {
         return [
-        
+            'comment' => 'required',
         ];
     }
 
