@@ -11,7 +11,7 @@ class UpdateUserRequest extends Request {
      * @return bool
      */
     public function authorize() {
-        return false;
+        return true;
     }
 
     /**
@@ -21,7 +21,8 @@ class UpdateUserRequest extends Request {
      */
     public function rules() {
         return [
-
+            'name' => 'required',
+            'email' => 'required',
         ];
     }
 
