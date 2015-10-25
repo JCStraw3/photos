@@ -41,7 +41,15 @@ class PhotoController extends Controller {
 
 	// View a single photo page.
 
-	public function viewReadOne(){
+	public function viewReadOne($id){
+
+		$user = Auth::user();
+
+		$photo = Photo::findOrFail($id);
+
+		return view('photos.viewReadOne')
+			->with('photo', $photo)
+			->with('user', $user);
 
 	}
 

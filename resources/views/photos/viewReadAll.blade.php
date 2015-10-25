@@ -15,7 +15,7 @@
 			</div>
 
 			<div>
-				{{ $photo->title }}
+				<a href='/photos/{{ $photo->id }}'>{{ $photo->title }}</a>
 			</div>
 
 			<div>

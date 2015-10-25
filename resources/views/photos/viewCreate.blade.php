@@ -13,7 +13,7 @@
 			<input name='description' type='text' placeholder='Description'>
 			Select image to upload:
 			<input name='image' type='file'>
-			<input name='submit' type='submit' value='Upload Image'>
+			<input name='submit' type='submit' value='Create Photo'>
 		</form>
 
 	</div>

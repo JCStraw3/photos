@@ -11,7 +11,7 @@ class CreateCommentRequest extends Request {
      * @return bool
      */
     public function authorize() {
-        return false;
+        return true;
     }
 
     /**
