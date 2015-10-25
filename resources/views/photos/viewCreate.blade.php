@@ -15,6 +15,11 @@
 				<option value='0'>Public</option>
 				<option value='1'>Private</option>
 			</select>
+			<select name='tags'>
+				@foreach($tags as $tag)
+					<option>{{ $tag->name }}</option>
+				@endforeach
+			</select>
 
 			Select image to upload:
 			<input name='image' type='file'>

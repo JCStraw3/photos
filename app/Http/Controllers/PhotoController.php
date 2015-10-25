@@ -7,6 +7,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Photo;
+use App\Tag;
 
 use Auth;
 use Uuid;
@@ -21,7 +22,10 @@ class PhotoController extends Controller {
 
 		$user = Auth::user();
 
+		$tags = Tag::all();
+
 		return view('photos.viewCreate')
+			->with('tags', $tags)
 			->with('user', $user);
 
 	}
@@ -61,8 +65,11 @@ class PhotoController extends Controller {
 
 		$photo = Photo::findOrFail($id);
 
+		$tags = Tag::all();
+
 		return view('photos.viewUpdate')
 			->with('photo', $photo)
+			->with('tags', $tags)
 			->with('user', $user);
 
 	}
@@ -86,6 +93,10 @@ class PhotoController extends Controller {
 		$photo->image = $fileName;
 
 		Auth::user()->photos()->save($photo);
+
+		$tags = $request->input('tags');
+
+		$photo->tags()->attach($tags);
 
 		return redirect('photos');
 

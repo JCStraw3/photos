@@ -13,6 +13,11 @@
 
 			<input name='title' type='text' value='{{ $photo->title }}' placeholder='Title'>
 			<textarea name='description' type='text' placeholder='Description'>{{ $photo->description }}</textarea>
+			<select name='tags'>
+				@foreach($tags as $tag)
+					<option>{{ $tag->name }}</option>
+				@endforeach
+			</select>
 			
 			<button type='submit'>Save</button>
 		</form>
