@@ -7,5 +7,9 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 class HomeController extends Controller {
+
+	public function viewHome(){
+		return view('viewHome');
+	}
 	
 }
