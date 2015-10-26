@@ -24,6 +24,10 @@
 			</div>
 		@endforeach
 
+		<div>
+			{{ count($photo->likes) }} likes.
+		</div>
+
 		<form action='/photos/{{ $photo->id }}' method='post'>
 			<input name='_method' type='hidden' value='delete'>
 			<button type='submit'>Delete photo</button>

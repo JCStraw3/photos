@@ -28,6 +28,10 @@
 
 	<span> | </span>
 
+	<a href='/likes'>Likes</a>
+
+	<span> | </span>
+
 	<a href='/auth/logout'>Logout</a>
 
 </div>

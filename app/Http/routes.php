@@ -60,3 +60,7 @@ Route::get('comments/{id}/edit', 'CommentController@viewUpdate');
 Route::post('comments', 'CommentController@actionCreate');
 Route::put('comments/{id}', 'CommentController@actionUpdate');
 Route::delete('comments/{id}', 'CommentController@actionDelete');
+
+// Like routes.
+
+Route::get('likes', 'LikeController@viewReadAll');
