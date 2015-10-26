@@ -24,6 +24,11 @@
 			</div>
 		@endforeach
 
+		<form action='/likes' method='post'>
+			<input name='photo_id' type='hidden' value='{{ $photo->id }}'>
+			<button type='submit'>Like</button>
+		</form>
+
 		<div>
 			{{ count($photo->likes) }} likes.
 		</div>

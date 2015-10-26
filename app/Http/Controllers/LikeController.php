@@ -7,6 +7,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Like;
+use App\Photo;
 
 use Auth;
 
@@ -28,6 +29,24 @@ class LikeController extends Controller {
 			->with('likes', $likes)
 			->with('user', $user);
 
+	}
+
+// Actions
+
+	// Create a like in the database.
+
+	public function actionCreate(Requests\CreateLikeRequest $request){
+
+		$like = new Like($request->all());
+
+		$photo = Photo::findOrFail($request->input('photo_id'));
+
+		$like = $photo->likes()->save($like);
+
+		Auth::user()->likes()->save($like);
+
+		return redirect('/photos');
+		
 	}
 	
 }

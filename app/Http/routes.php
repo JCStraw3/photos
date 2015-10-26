@@ -64,3 +64,4 @@ Route::delete('comments/{id}', 'CommentController@actionDelete');
 // Like routes.
 
 Route::get('likes', 'LikeController@viewReadAll');
+Route::post('likes', 'LikeController@actionCreate');

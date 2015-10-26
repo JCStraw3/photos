@@ -13,7 +13,7 @@ class Like extends Model {
 	// Attributes that are mass assignable.
 
 	protected $fillable = [
-
+		'photo_id' => 'required',
 	];
 
 	// A like belongs to a user.
