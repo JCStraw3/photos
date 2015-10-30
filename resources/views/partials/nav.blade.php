@@ -45,6 +45,11 @@
 
 	<a href='/auth/logout'>Logout</a>
 
+{{-- 	<form action='/photos' role='search'>
+		<input name='search' type="text" placeholder="Search">
+		<button type="submit">Submit</button>
+	</form> --}}
+
 </div>
 
 <hr />

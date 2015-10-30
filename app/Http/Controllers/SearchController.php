@@ -7,5 +7,15 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 class SearchController extends Controller {
+
+	public function actionSearch(Request $request){
+
+		$query = Request::input('search');
+
+		$results = Photo::where('name', 'LIKE', '%' .$query. '%')->get();
+
+		return view('search')->with('results', $results);
+
+	}
 	
 }

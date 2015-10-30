@@ -65,3 +65,5 @@ Route::delete('comments/{id}', 'CommentController@actionDelete');
 
 Route::get('likes', 'LikeController@viewReadAll');
 Route::post('likes', 'LikeController@actionCreate');
+
+// Route::get('photos?search={query}', 'SearchController');
