@@ -51,10 +51,14 @@
 				@foreach($photo->comments as $comment)
 					{{ $comment->comment }}
 
-					<form action='/comments/{{ $comment->id }}' method='post'>
-						<input name='_method' type='hidden' value='delete'>
-						<button type='submit'>Delete comment</button>
-					</form>
+					@if($comment->user_id === $user->id)
+						<a href='/comments/{{ $comment->id }}/edit'>Edit comment</a>
+
+						<form action='/comments/{{ $comment->id }}' method='post'>
+							<input name='_method' type='hidden' value='delete'>
+							<button type='submit'>Delete comment</button>
+						</form>
+					@endif
 
 					<br />
 				@endforeach

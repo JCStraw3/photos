@@ -59,6 +59,10 @@ class CommentController extends Controller {
 
 		Auth::user()->comments()->save($comment);
 
+		// Send flash message.
+
+		\Session::flash('flash_message', 'You have successfully commented on a photo.');
+
 		return redirect('/photos');
 
 	}
@@ -73,6 +77,10 @@ class CommentController extends Controller {
 			->findOrFail($id);
 
 		$comment->update($request->all());
+
+		// Send flash message.
+
+		\Session::flash('flash_message', 'You have successfully updated your comment.');
 
 		return redirect('/photos');
 
