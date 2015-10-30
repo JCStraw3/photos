@@ -2,6 +2,12 @@
 
 @section('content')
 
+	<!-- Errors -->
+
+	@include('errors.list')
+
+	{{-- Form to update a user profile --}}
+
 	<div>
 
 		<form action='/user/{{ $user->id }}' method='post'>

@@ -2,6 +2,12 @@
 
 @section('content')
 
+	<!-- Flash messaging -->
+
+	@include('partials.flash')
+
+	{{-- View a user's profile --}}
+
 	<div>
 		{{ $user->name }}
 	</div>

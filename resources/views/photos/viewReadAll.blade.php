@@ -2,6 +2,12 @@
 
 @section('content')
 
+	<!-- Flash messaging -->
+
+	@include('partials.flash')
+
+	{{-- View all photos --}}
+
 	<h2>Photos</h2>
 
 	<hr />

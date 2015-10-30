@@ -46,6 +46,10 @@ class UserController extends Controller {
 
 		$user->update($request->all());
 
+		// Send flash message.
+
+		\Session::flash('flash_message', 'You have successfully updated your user profile.');
+
 		return redirect('/user/'.$id);
 
 	}
@@ -54,7 +58,11 @@ class UserController extends Controller {
 
 	public function actionUploadImage($id, Requests\UploadImageRequest $request){
 
+		// Find the user in the database.
+
 		$user = User::findOrFail($id);
+
+		// Upload a photo and save to the database.
 
 		$destinationPath = 'uploads';
 
@@ -67,6 +75,10 @@ class UserController extends Controller {
 		$user->image = $fileName;
 
 		$user->save();
+
+		// Send flash message.
+
+		\Session::flash('flash_message', 'You have successfully uploaded a user photo.');
 
 		return redirect('/user/'.$id);
 

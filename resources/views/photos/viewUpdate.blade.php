@@ -2,6 +2,12 @@
 
 @section('content')
 
+	<!-- Errors -->
+
+	@include('errors.list')
+
+	{{-- Form to update a photo --}}
+
 	<h2>Update Photo</h2>
 
 	<hr />
@@ -12,8 +18,10 @@
 			<input name='_method' type='hidden' value='put'>
 
 			<input name='title' type='text' value='{{ $photo->title }}' placeholder='Title'>
+			
 			<textarea name='description' type='text' placeholder='Description'>{{ $photo->description }}</textarea>
-			<select name='tags[]'>
+
+			<select name='tags[]' multiple>
 				@foreach($tags as $tag)
 					<option value='{{ $tag->id }}'>{{ $tag->name }}</option>
 				@endforeach

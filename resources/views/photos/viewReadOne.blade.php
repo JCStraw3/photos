@@ -2,6 +2,12 @@
 
 @section('content')
 
+	<!-- Flash messaging -->
+
+	@include('partials.flash')
+
+	{{-- View a specific photo --}}
+
 	<a href='/photos/{{ $photo->id }}/edit'>Edit photo</a>
 
 	<h2>{{ $photo->title }}</h2>

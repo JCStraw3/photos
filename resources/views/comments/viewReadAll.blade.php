@@ -2,6 +2,8 @@
 
 @section('content')
 
+	{{-- View all comments made by a user --}}
+
 	<h2>Comments</h2>
 
 	<hr />

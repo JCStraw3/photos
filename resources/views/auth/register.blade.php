@@ -2,6 +2,12 @@
 
 @section('content')
 
+	<!-- Errors -->
+
+	@include('errors.list')
+
+	{{-- Form to register a new user --}}
+
 	<h2>Register</h2>
 
 	<hr />

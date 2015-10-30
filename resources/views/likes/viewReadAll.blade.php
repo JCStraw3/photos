@@ -2,6 +2,8 @@
 
 @section('content')
 
+	{{-- View all likes made by a user --}}
+
 	<h2>Likes</h2>
 
 	<hr />

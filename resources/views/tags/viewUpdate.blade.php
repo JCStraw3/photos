@@ -2,6 +2,12 @@
 
 @section('content')
 
+	<!-- Errors -->
+
+	@include('errors.list')
+
+	{{-- Form to update a tag --}}
+
 	<div>
 
 		<form action='/tags/{{ $tag->id }}' method='post'>

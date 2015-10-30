@@ -82,6 +82,18 @@ class PhotoController extends Controller {
 
 		$photo = new Photo($request->all());
 
+		if(!$request->hasFile('image')){
+			\Session::flash('flash_message', 'No file selected.');
+
+			return redirect('/photos');
+		}
+
+		if(!$request->file('image')->isValid()){
+			\Session::flash('flash_message', 'File is not valid.');
+
+			return redirect('/photos');
+		}
+
 		$destinationPath = 'uploads';
 
 		$extension = $request->file('image')->getClientOriginalExtension();
@@ -97,6 +109,10 @@ class PhotoController extends Controller {
 		$tags = $request->input('tags');
 
 		$photo->tags()->attach($tags);
+
+		// Send flash message.
+
+		\Session::flash('flash_message', 'You have successfully created a photo.');
 
 		return redirect('photos');
 
@@ -117,6 +133,10 @@ class PhotoController extends Controller {
 
 		$photo->tags()->sync($tags);
 
+		// Send flash message.
+
+		\Session::flash('flash_message', 'You have successfully updated a photo.');
+
 		return redirect('/photos/'.$photo->id);
 
 	}
@@ -131,6 +151,10 @@ class PhotoController extends Controller {
 			->findOrFail($id);
 
 		$photo->delete($photo);
+
+		// Send flash message.
+
+		\Session::flash('flash_message', 'You have successfully deleted a photo.');
 
 		return redirect('photos');
 

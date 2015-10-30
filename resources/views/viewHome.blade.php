@@ -2,6 +2,8 @@
 
 @section('content')
 
+	{{-- Show home page with links to register and login --}}
+
 	<h1>Test</h1>
 
 	<p>

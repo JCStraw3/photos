@@ -2,6 +2,12 @@
 
 @section('content')
 
+	<!-- Errors -->
+
+	@include('errors.list')
+
+	{{-- Form to login a user --}}
+
 	<h2>Login</h2>
 
 	<hr />

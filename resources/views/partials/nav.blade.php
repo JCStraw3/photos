@@ -1,13 +1,15 @@
+{{-- Navigation bar --}}
+
 <div class="pure-menu pure-menu-horizontal">
 
 	<a href='/photos' class="pure-menu-heading pure-menu-link">Photos</a>
 
-	<ul class="pure-menu-list">
+{{-- 	<ul class="pure-menu-list">
 		<li class="pure-menu-item"><a href='/user/{{ $user->id }}' class="pure-menu-link">{{ $user->name }}</a></li>
 		<li class="pure-menu-item"><a href='/auth/logout' class="pure-menu-link">Logout</a></li>
-	</ul>
+	</ul> --}}
 
-	{{-- <span> | </span>
+	<span> | </span>
 
 	<a href='/photos/create'>Create Photo</a>
 
@@ -21,13 +23,17 @@
 
 	<span> | </span>
 
-	<a href='/user/{{ $user->id }}'>{{ $user->name }}</a>
+	@if($user)
+		<a href='/user/{{ $user->id }}'>{{ $user->name }}</a>
 
-	<span> | </span>
+		<span> | </span>
+	@endif
 
-	<a href='/user/{{ $user->id }}/edit'>Edit {{ $user->name }}</a>
+	@if($user)
+		<a href='/user/{{ $user->id }}/edit'>Edit {{ $user->name }}</a>
 
-	<span> | </span>
+		<span> | </span>
+	@endif
 
 	<a href='/comments'>Comments</a>
 
@@ -37,13 +43,13 @@
 
 	<span> | </span>
 
-	<a href='/auth/logout'>Logout</a> --}}
+	<a href='/auth/logout'>Logout</a>
 
 </div>
 
 <hr />
 
-<div class="pure-menu pure-menu-horizontal">
+{{-- <div class="pure-menu pure-menu-horizontal">
 
 	<ul class="pure-menu-list">
 		<li class="pure-menu-item"><a href='/photos/create' class="pure-menu-link">Create Photo</a></li>
@@ -54,4 +60,4 @@
 
 </div>
 
-<hr />
+<hr /> --}}

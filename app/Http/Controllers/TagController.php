@@ -77,6 +77,10 @@ class TagController extends Controller {
 
 		$tag->save();
 
+		// Send flash message.
+
+		\Session::flash('flash_message', 'You have successfully created a tag.');
+
 		return redirect('tags');
 
 	}
@@ -88,6 +92,10 @@ class TagController extends Controller {
 		$tag = Tag::findOrFail($id);
 
 		$tag->update($request->all());
+
+		// Send flash message.
+
+		\Session::flash('flash_message', 'You have successfully updated a tag.');
 
 		return redirect('/tags/'.$tag->id);
 

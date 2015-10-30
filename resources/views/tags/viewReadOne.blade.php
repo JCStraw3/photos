@@ -2,6 +2,12 @@
 
 @section('content')
 
+	<!-- Flash messaging -->
+
+	@include('partials.flash')
+
+	{{-- View a specific tag --}}
+
 	<a href='/tags/{{ $tag->id }}/edit'>Edit Tag</a>
 
 	<div>

@@ -2,6 +2,12 @@
 
 @section('content')
 
+	<!-- Errors -->
+
+	@include('errors.list')
+
+	{{-- Form to create a new tag --}}
+
 	<div>
 
 		<form action='/tags' method='post'>

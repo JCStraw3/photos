@@ -2,6 +2,8 @@
 
 @section('content')
 
+	{{-- Edit a comment --}}
+
 	<h2>Edit a comment</h2>
 
 	<hr />

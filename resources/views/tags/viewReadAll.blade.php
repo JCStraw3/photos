@@ -2,6 +2,12 @@
 
 @section('content')
 
+	<!-- Flash messaging -->
+
+	@include('partials.flash')
+
+	{{-- View all tags --}}
+
 	<h2>Tags</h2>
 
 	<hr />
