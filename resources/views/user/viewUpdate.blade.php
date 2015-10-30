@@ -14,7 +14,9 @@
 			<input name='_method' type='hidden' value='put'>
 
 			<input name='name' type='text' value='{{ $user->name }}' placeholder='Name'>
+
 			<input name='email' type='email' value='{{ $user->email }}' placeholder='Email'>
+
 			<select class='form-control' name='gender'>
 				@if($user->gender)
 					<option value='{{ $user->gender }}' selected>{{ $user->gender }}</option>
@@ -23,11 +25,28 @@
 				<option value='Female'>Female</option>
 				<option value='Male'>Male</option>
 			</select>
+
 			<input name='birthday' type='date' value='{{ $user->birthday }}' placeholder='Birthday'>
+			
 			<textarea name='description' type='text' placeholder='Description'>{{ $user->description }}</textarea>
 
 			<button type='submit'>Save</button>
 		</form>
+
+	</div>
+
+@endsection
+
+@section('toolbar')
+
+	<div class="pure-menu pure-menu-horizontal">
+
+		<ul class="pure-menu-list">
+			
+			<li class="pure-menu-item"><a href='/comments' class="pure-menu-link">Comments</a></li>
+			
+			<li class="pure-menu-item"><a href='/likes' class="pure-menu-link">Likes</a></li>
+		</ul>
 
 	</div>
 

@@ -11,6 +11,8 @@
 
 		@include('partials.nav')
 
+		@yield('toolbar')
+
 		@yield('content')
 
 	</body>

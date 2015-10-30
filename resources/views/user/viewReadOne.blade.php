@@ -8,6 +8,9 @@
 
 	{{-- View a user's profile --}}
 
+
+	<a href='/user/{{ $user->id }}/edit'>Edit user profile</a>
+
 	<div>
 		{{ $user->name }}
 	</div>
@@ -41,6 +44,21 @@
 			<input name='image' type='file'>
 			<input name='submit' type='submit' value='Upload Image'>
 		</form>
+
+	</div>
+
+@endsection
+
+@section('toolbar')
+
+	<div class="pure-menu pure-menu-horizontal">
+
+		<ul class="pure-menu-list">
+			
+			<li class="pure-menu-item"><a href='/comments' class="pure-menu-link">Comments</a></li>
+			
+			<li class="pure-menu-item"><a href='/likes' class="pure-menu-link">Likes</a></li>
+		</ul>
 
 	</div>
 
