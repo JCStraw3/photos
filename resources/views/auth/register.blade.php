@@ -8,22 +8,27 @@
 
 	{{-- Form to register a new user --}}
 
-	<h2>Register</h2>
-
-	<hr />
-
 	<div>
 
-		<form action='/auth/register' method='post'>
+		<h2>Register</h2>
 
-			<input name='name' type='text' placeholder='Name'>
-			<input name='email' type='email' placeholder='Email'>
-			<input name='password' type='password' placeholder='Password'>
-			<input name='password_confirmation' type='password' placeholder='Confirm Password'>
+		<div>
 
-			<button type='submit'>Register</button>
+			<form action='/auth/register' method='post' class="pure-form pure-form-stacked">
 
-		</form>
+				<input name='name' type='text' placeholder='Name' class="pure-u-1-4">
+
+				<input name='email' type='email' placeholder='Email' class="pure-u-1-4">
+
+				<input name='password' type='password' placeholder='Password' class="pure-u-1-4">
+				
+				<input name='password_confirmation' type='password' placeholder='Confirm Password' class="pure-u-1-4">
+
+				<button type='submit' class="pure-button pure-button-primary pure-u-1-4">Register</button>
+
+			</form>
+
+		</div>
 
 	</div>
 

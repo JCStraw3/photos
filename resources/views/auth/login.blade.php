@@ -8,20 +8,23 @@
 
 	{{-- Form to login a user --}}
 
-	<h2>Login</h2>
-
-	<hr />
-
 	<div>
 
-		<form action='/auth/login' method='post'>
+		<h2>Login</h2>
 
-			<input name='email' type='email' placeholder='Email'>
-			<input name='password' type='password' placeholder='Password'>
+		<div>
 
-			<button type='submit'>Login</button>
+			<form action='/auth/login' method='post' class="pure-form pure-form-stacked">
+				<fieldset>
+					<input name='email' type='email' placeholder='Email' class="pure-u-1-4">
 
-		</form>
+					<input name='password' type='password' placeholder='Password' class="pure-u-1-4">
+
+					<button type='submit' class="pure-button pure-button-primary pure-u-1-4">Login</button>
+				</fieldset>
+			</form>
+
+		</div>
 
 	</div>
 
