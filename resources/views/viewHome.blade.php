@@ -4,16 +4,18 @@
 
 	{{-- Show home page with links to register and login --}}
 
-	<h1>Test</h1>
+	<div style='text-align:center'>
 
-	<p>
+		<h1>Photos App</h1>
 
-		<a href='/auth/register'>Register</a>
+		<div>
 
-		<br />
+			<a href='/auth/register' class="pure-button pure-button-primary pure-u-1-4">Register</a>
 
-		<a href='/auth/login'>Login</a>
+			<a href='/auth/login' class="pure-button pure-button-primary pure-u-1-4">Login</a>
 
-	</p>
+		</div>
+
+	</div>
 
 @endsection
