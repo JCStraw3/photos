@@ -39,13 +39,13 @@
 
 @section('toolbar')
 
-	<div class="pure-menu pure-menu-horizontal">
+	<div class='pure-menu pure-menu-horizontal'>
 
-		<ul class="pure-menu-list">
+		<ul class='pure-menu-list'>
 			
-			<li class="pure-menu-item"><a href='/comments' class="pure-menu-link">Comments</a></li>
+			<li class='pure-menu-item'><a href='/comments' class='pure-menu-link'>Comments</a></li>
 			
-			<li class="pure-menu-item"><a href='/likes' class="pure-menu-link">Likes</a></li>
+			<li class='pure-menu-item'><a href='/likes' class='pure-menu-link'>Likes</a></li>
 		</ul>
 
 	</div>

@@ -36,7 +36,7 @@
 
 			<form action='/likes' method='post'>
 				<input name='photo_id' type='hidden' value='{{ $photo->id }}'>
-				<button type='submit'>Like</button>
+				<button class="pure-button pure-button-primary" type='submit'>Like</button>
 			</form>
 
 			<div>
@@ -45,7 +45,7 @@
 
 			<form action='/photos/{{ $photo->id }}' method='post'>
 				<input name='_method' type='hidden' value='delete'>
-				<button type='submit'>Delete photo</button>
+				<button class="pure-button" type='submit'><i class="fa fa-times"></i></button>
 			</form>
 
 			<div>
@@ -56,11 +56,11 @@
 						{{ $comment->comment }}
 
 						@if($comment->user_id === $user->id)
-							<a href='/comments/{{ $comment->id }}/edit'>Edit comment</a>
+							<a class="pure-button pure-button-primary" href='/comments/{{ $comment->id }}/edit'><i class="fa fa-pencil-square-o"></i></a>
 
 							<form action='/comments/{{ $comment->id }}' method='post'>
 								<input name='_method' type='hidden' value='delete'>
-								<button type='submit'>Delete comment</button>
+								<button class="pure-button" type='submit'><i class="fa fa-times"></i></button>
 							</form>
 						@endif
 
@@ -73,7 +73,7 @@
 				<form action='/comments' method='post'>
 					<input name='photo_id' type='hidden' value='{{ $photo->id }}'>
 					<textarea name='comment' placeholder='Comment'></textarea>
-					<button type='submit'>Comment</button>
+					<button class="pure-button pure-button-primary" type='submit'>Comment</button>
 				</form>
 			</div>
 
