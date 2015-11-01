@@ -10,10 +10,10 @@
 
 	@foreach ($photos as $photo)
 
-		<div>
+		<div class='card'>
 
 			<div>
-				<img src='/uploads/{{ $photo->image }}' class='image'>
+				<img src='/uploads/{{ $photo->image }}' class="pure-img image">
 			</div>
 
 			<div>
@@ -33,7 +33,7 @@
 			<div>
 				{{ count($photo->likes) }} likes.
 
-				<form action='/likes' method='post'>
+				<form action='/likes' method='post' class='form'>
 					<input name='photo_id' type='hidden' value='{{ $photo->id }}'>
 					<button class="pure-button pure-button-primary" type='submit'>Like</button>
 				</form>
@@ -54,9 +54,9 @@
 						@if($comment->user_id === $user->id)
 							<a href='/comments/{{ $comment->id }}/edit' class="pure-button pure-button-primary"><i class="fa fa-pencil-square-o"></i></a>
 
-							<form action='/comments/{{ $comment->id }}' method='post'>
+							<form action='/comments/{{ $comment->id }}' method='post' class='form'>
 								<input name='_method' type='hidden' value='delete'>
-								<button class="pure-button" type='submit'><i class="fa fa-times"></i></button>
+								<button class="button-error pure-button" type='submit'><i class="fa fa-times"></i></button>
 							</form>
 						@endif
 

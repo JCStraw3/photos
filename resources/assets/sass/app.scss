@@ -23,10 +23,48 @@ a {
 // Image classes
 
 .image {
-	max-height: 500px;
-	max-width: 500px;
+	max-height: 600px;
+	max-width: 600px;
 }
 
 .pull-right {
 	text-align: right;
+}
+
+.card {
+	max-width: 600px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 2em;
+	margin-bottom: 2em;
+	border-style: solid;
+	border-color: rgb(192,192,192);
+	border-width: 1px;
+	background-color: #ffffff;
+}
+
+// Button classes
+
+.button-success {
+	background-color: rgb(28,184,65);
+}
+
+.button-error {
+	background-color: rgb(202,60,60);
+}
+
+.button-warning {
+	background-color: rgb(223,117,20);
+}
+
+.button-secondary {
+	background-color: rgb(66,184,221);
+}
+
+.button-xsmall {
+	font-size: 70%;
+}
+
+.form {
+	display: inline;
 }

@@ -13,10 +13,39 @@ a {
   color: white !important; }
 
 .image {
-  max-height: 500px;
-  max-width: 500px; }
+  max-height: 600px;
+  max-width: 600px; }
 
 .pull-right {
   text-align: right; }
+
+.card {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  border-style: solid;
+  border-color: silver;
+  border-width: 1px;
+  background-color: #ffffff; }
+
+.button-success {
+  background-color: #1cb841; }
+
+.button-error {
+  background-color: #ca3c3c; }
+
+.button-warning {
+  background-color: #df7514; }
+
+.button-secondary {
+  background-color: #42b8dd; }
+
+.button-xsmall {
+  font-size: 70%; }
+
+.form {
+  display: inline; }
 
 /*# sourceMappingURL=app.css.map */
