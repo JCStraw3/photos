@@ -8,31 +8,31 @@
 
 	{{-- View a specific tag --}}
 
-	<a href='/tags/{{ $tag->id }}/edit'>Edit Tag</a>
-
 	<div>
 
-		{{ $tag->name }}
+		<h2>{{ $tag->name }}</h2>
 
-	</div>
+		<a href='/tags/{{ $tag->id }}/edit' class="pure-button pure-button-primary"><i class="fa fa-pencil-square-o"></i></a>
 
-	<div>
+		<div>
 
-		@foreach($tag->photos as $photo)
-
-			<div>
+			@foreach($tag->photos as $photo)
 
 				<div>
-					<img src='/uploads/{{ $photo->image }}'>
+
+					<div>
+						<img src='/uploads/{{ $photo->image }}'>
+					</div>
+
+					<div>
+						{{ $photo->title }}
+					</div>
+
 				</div>
 
-				<div>
-					{{ $photo->description }}
-				</div>
+			@endforeach
 
-			</div>
-
-		@endforeach
+		</div>
 
 	</div>
 
@@ -43,10 +43,7 @@
 	<div class='pure-menu pure-menu-horizontal'>
 
 		<ul class='pure-menu-list'>
-
-			<li class='pure-menu-item'><a href='/tags' class='pure-menu-link'>Tags</a></li>
-
-			<li class='pure-menu-item'><a href='/tags/create' class='pure-menu-link'>Create Tag</a></li>
+			<li class='pure-menu-item'><a href='/tags/create' class='pure-menu-link'><i class="fa fa-plus"></i> Tag</a></li>
 		</ul>
 
 	</div>

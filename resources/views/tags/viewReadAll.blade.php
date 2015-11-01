@@ -8,17 +8,17 @@
 
 	{{-- View all tags --}}
 
-	<h2>Tags</h2>
-
-	<hr />
-
 	<div>
+
+		<h2>Tags</h2>
 
 		@foreach($tags as $tag)
 
 			<div>
-				<a href='/tags/{{ $tag->id }}'>{{ $tag->name }}</a>
+				<a href='/tags/{{ $tag->id }}' class="pure-button pure-button-primary">{{ $tag->name }}</a>
 			</div>
+
+			<br />
 
 		@endforeach
 
@@ -31,10 +31,7 @@
 	<div class='pure-menu pure-menu-horizontal'>
 
 		<ul class='pure-menu-list'>
-
-			<li class='pure-menu-item'><a href='/tags' class='pure-menu-link'>Tags</a></li>
-
-			<li class='pure-menu-item'><a href='/tags/create' class='pure-menu-link'>Create Tag</a></li>
+			<li class='pure-menu-item'><a href='/tags/create' class='pure-menu-link'><i class="fa fa-plus"></i> Tag</a></li>
 		</ul>
 
 	</div>
