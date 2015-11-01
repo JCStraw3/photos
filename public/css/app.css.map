@@ -1,1 +1,1 @@
-{"version":3,"sources":["app.scss"],"names":[],"mappings":"AAAA;EACC,iBAAiB,EACjB","file":"app.css","sourcesContent":["body {\n\tbackground: pink;\n}"],"sourceRoot":"/source/"}
+{"version":3,"sources":["app.scss"],"names":[],"mappings":"AACA;EACC,sBAAsB,EACtB","file":"app.css","sourcesContent":["\na {\n\ttext-decoration: none;\n}"],"sourceRoot":"/source/"}
