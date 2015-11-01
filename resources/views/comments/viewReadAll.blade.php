@@ -12,16 +12,16 @@
 
 		@foreach($comments as $comment)
 
-			<div>
-				{{ $comment->comment }}
+			{{ $comment->comment }}
 
-				<a href='/comments/{{ $comment->id }}/edit'>Edit Comment</a>
-			</div>
+			@if($comment->user_id === $user->id)
+				<a href='/comments/{{ $comment->id }}/edit' class="pure-button pure-button-primary"><i class="fa fa-pencil-square-o"></i></a>
 
-			<form action='/comments/{{ $comment->id }}' method='post'>
-				<input name='_method' type='hidden' value='delete'>
-				<button type='submit'>Delete comment</button>
-			</form>
+				<form action='/comments/{{ $comment->id }}' method='post'>
+					<input name='_method' type='hidden' value='delete'>
+					<button class="pure-button" type='submit'><i class="fa fa-times"></i></button>
+				</form>
+			@endif
 
 		@endforeach
 

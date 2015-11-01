@@ -6,10 +6,8 @@
 
 	<h2>Likes</h2>
 
-	<hr />
-
 	<div>
-		You have {{ count($likes) }} likes.
+		You have liked {{ count($likes) }} photos.
 	</div>
 
 	@foreach($likes as $like)
