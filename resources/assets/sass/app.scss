@@ -1,4 +1,32 @@
+// Basic tags
+
+body {
+	background-color: rgb(244,244,244);
+}
 
 a {
 	text-decoration: none;
+}
+
+// Navbar classes
+
+.pure-menu {
+	background-color: rgb(128,0,64);
+	color: white;
+	margin-bottom: 1em;
+}
+
+.pure-menu-link {
+	color: white !important;
+}
+
+// Image classes
+
+.image {
+	max-height: 500px;
+	max-width: 500px;
+}
+
+.pull-right {
+	text-align: right;
 }

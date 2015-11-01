@@ -13,7 +13,7 @@
 		<div>
 
 			<div>
-				<img src='/uploads/{{ $photo->image }}'>
+				<img src='/uploads/{{ $photo->image }}' class='image'>
 			</div>
 
 			<div>

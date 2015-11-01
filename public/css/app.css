@@ -1,4 +1,22 @@
+body {
+  background-color: #f4f4f4; }
+
 a {
   text-decoration: none; }
+
+.pure-menu {
+  background-color: #800040;
+  color: white;
+  margin-bottom: 1em; }
+
+.pure-menu-link {
+  color: white !important; }
+
+.image {
+  max-height: 500px;
+  max-width: 500px; }
+
+.pull-right {
+  text-align: right; }
 
 /*# sourceMappingURL=app.css.map */

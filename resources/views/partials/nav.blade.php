@@ -4,7 +4,7 @@
 
 	<a href='/' class='pure-menu-heading pure-menu-link'>Photos</a>
 
-	<ul class='pure-menu-list'>
+	<ul class='pure-menu-list pull-right'>
 
 		@if($user)
 			<li class='pure-menu-item'><a href='/photos/create' class='pure-menu-link'><i class="fa fa-plus"></i> Photo</a></li>

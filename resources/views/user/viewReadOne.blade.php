@@ -56,7 +56,7 @@
 
 @endsection
 
-@section('toolbar')
+{{-- @section('toolbar')
 
 	<div class='pure-menu pure-menu-horizontal'>
 
@@ -69,4 +69,4 @@
 
 	</div>
 
-@endsection
+@endsection --}}

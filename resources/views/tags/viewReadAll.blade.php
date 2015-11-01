@@ -2,6 +2,12 @@
 
 @section('content')
 
+	{{-- Add new tag --}}
+
+	<div>
+		<a href='/tags/create' class="pure-button pure-button-primary"><i class="fa fa-plus"></i> Tag</a>
+	</div>
+
 	<!-- Flash messaging -->
 
 	@include('partials.flash')
@@ -21,18 +27,6 @@
 			<br />
 
 		@endforeach
-
-	</div>
-
-@endsection
-
-@section('toolbar')
-
-	<div class='pure-menu pure-menu-horizontal'>
-
-		<ul class='pure-menu-list'>
-			<li class='pure-menu-item'><a href='/tags/create' class='pure-menu-link'><i class="fa fa-plus"></i> Tag</a></li>
-		</ul>
 
 	</div>
 
