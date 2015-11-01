@@ -8,42 +8,49 @@
 
 	{{-- View a user's profile --}}
 
-
-	<a href='/user/{{ $user->id }}/edit'>Edit user profile</a>
-
-	<div>
-		{{ $user->name }}
-	</div>
-
-	<div>
-		{{ $user->email }}
-	</div>
-
-	<div>
-		{{ $user->gender }}
-	</div>
-
-	<div>
-		{{ $user->birthday }}
-	</div>
-
-	<div>
-		{{ $user->description }}
-	</div>
-
 	<div>
 
-		@if($user->image)
-			<img src='/uploads/{{ $user->image }}'>
-		@endif
-		
+		<div>
+
+			@if($user->image)
+				<img src='/uploads/{{ $user->image }}'>
+			@endif
+			
+			<br />
+
+			<form action='/user/{{ $user->id }}' method='post' enctype='multipart/form-data'>
+				Select image to upload:
+				<input name='image' type='file'>
+				<input class="pure-button pure-button-primary" name='submit' type='submit' value='Save'>
+			</form>
+
+		</div>
+
+		<a href='/user/{{ $user->id }}/edit' class="pure-button pure-button-primary"><i class="fa fa-pencil-square-o"></i></a>
+
 		<br />
 
-		<form action='/user/{{ $user->id }}' method='post' enctype='multipart/form-data'>
-			Select image to upload:
-			<input name='image' type='file'>
-			<input name='submit' type='submit' value='Upload Image'>
-		</form>
+		<br />
+
+		<div>
+			{{ $user->name }}
+		</div>
+
+		<div>
+			{{ $user->email }}
+		</div>
+
+		<div>
+			{{ $user->gender }}
+		</div>
+
+		<div>
+			{{ $user->birthday }}
+		</div>
+
+		<div>
+			{{ $user->description }}
+		</div>
 
 	</div>
 
