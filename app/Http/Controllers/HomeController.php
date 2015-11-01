@@ -22,9 +22,9 @@ class HomeController extends Controller {
 			return view('viewHome');
 		}
 
-		// If user is logged in, redirect to movies page.
+		// If user is logged in, redirect to photos page.
 
-		return redirect('movies');
+		return redirect('photos');
 	}
 	
 }

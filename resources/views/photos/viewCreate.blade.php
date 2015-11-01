@@ -8,44 +8,36 @@
 
 	{{-- Form to create a new photo --}}
 
-	<h2>Create Photo</h2>
-
-	<hr />
-
 	<div>
 
-		<form class="pure-form pure-form-aligned" action='/photos' method='post' enctype='multipart/form-data'>
-			<fieldset>
-				<div class="pure-control-group">
-					<input class="pure-input-1" name='title' type='text' placeholder='Title'>
-				</div>
+		<h2>New Photo</h2>
 
-				<div class="pure-control-group">
-					<textarea class="pure-input-1" name='description' type='text' placeholder='Description'></textarea>
-				</div>
+		<div>
+
+			<form action='/photos' method='post' enctype='multipart/form-data' class="pure-form pure-form-stacked">
+				<fieldset>
+					<input name='title' type='text' placeholder='Title' class="pure-input-1">
+
+					<textarea name='description' type='text' placeholder='Description' class="pure-input-1"></textarea>
 				
-				<div class="pure-control-group">
-					<select class="pure-input-1" name='private'>
-						<option value='0'>Public</option>
-						<option value='1'>Private</option>
-					</select>
-				</div>
-				
-				<div class="pure-control-group">
-					<select class="pure-input-1" name='tags' multiple>
+					<select name='tags' multiple class="pure-input-1">
 						@foreach($tags as $tag)
 							<option value='{{ $tag->id }}'>{{ $tag->name }}</option>
 						@endforeach
 					</select>
-				</div>
 				
-				<div class="pure-control-group">
-					Select image to upload:
+					<select name='private' class="pure-input-1">
+						<option value='0'>Public</option>
+						<option value='1'>Private</option>
+					</select>
+				
+					Select image to upload: 
 					<input name='image' type='file'>
-					<input class="pure-button pure-button-primary" name='submit' type='submit' value='Create Photo'>
-				</div>
-			</fieldset>
-		</form>
+					<input class="pure-button pure-button-primary pure-u-1" name='submit' type='submit' value='Create'>
+				</fieldset>
+			</form>
+
+		</div>
 
 	</div>
 

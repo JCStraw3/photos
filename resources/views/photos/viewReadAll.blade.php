@@ -8,13 +8,9 @@
 
 	{{-- View all photos --}}
 
-	<h2>Photos</h2>
+	@foreach ($photos as $photo)
 
-	<hr />
-
-	<div>
-
-		@foreach ($photos as $photo)
+		<div>
 
 			<div>
 				<img src='/uploads/{{ $photo->image }}'>
@@ -28,19 +24,19 @@
 				{{ $photo->description }}
 			</div>
 
-			@foreach($photo->tags as $tag)
-				<div>
+			<div>
+				@foreach($photo->tags as $tag)
 					<a href='/tags/{{ $tag->id }}'>{{ $tag->name }}</a>
-				</div>
-			@endforeach
-
-			<form action='/likes' method='post'>
-				<input name='photo_id' type='hidden' value='{{ $photo->id }}'>
-				<button class="pure-button pure-button-primary" type='submit'>Like</button>
-			</form>
+				@endforeach
+			</div>
 
 			<div>
 				{{ count($photo->likes) }} likes.
+
+				<form action='/likes' method='post'>
+					<input name='photo_id' type='hidden' value='{{ $photo->id }}'>
+					<button class="pure-button pure-button-primary" type='submit'>Like</button>
+				</form>
 			</div>
 
 			<form action='/photos/{{ $photo->id }}' method='post'>
@@ -56,7 +52,7 @@
 						{{ $comment->comment }}
 
 						@if($comment->user_id === $user->id)
-							<a class="pure-button pure-button-primary" href='/comments/{{ $comment->id }}/edit'><i class="fa fa-pencil-square-o"></i></a>
+							<a href='/comments/{{ $comment->id }}/edit' class="pure-button pure-button-primary"><i class="fa fa-pencil-square-o"></i></a>
 
 							<form action='/comments/{{ $comment->id }}' method='post'>
 								<input name='_method' type='hidden' value='delete'>
@@ -79,8 +75,8 @@
 
 			<br />
 
-		@endforeach
+		</div>
 
-	</div>
+	@endforeach
 
 @endsection

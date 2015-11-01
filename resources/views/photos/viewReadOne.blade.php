@@ -8,67 +8,73 @@
 
 	{{-- View a specific photo --}}
 
-	<a href='/photos/{{ $photo->id }}/edit'>Edit photo</a>
-
-	<h2>{{ $photo->title }}</h2>
-
-	<hr />
-
 	<div>
 
 		<div>
-			<img src='/uploads/{{ $photo->image }}'>
-		</div>
 
-		<div>
-			{{ $photo->description }}
-		</div>
-
-		@foreach($photo->tags as $tag)
 			<div>
-				<a href='/tags/{{ $tag->id }}'>{{ $tag->name }}</a>
+				<img src='/uploads/{{ $photo->image }}'>
 			</div>
-		@endforeach
 
-		<form action='/likes' method='post'>
-			<input name='photo_id' type='hidden' value='{{ $photo->id }}'>
-			<button type='submit'>Like</button>
-		</form>
-
-		<div>
-			{{ count($photo->likes) }} likes.
-		</div>
-
-		<form action='/photos/{{ $photo->id }}' method='post'>
-			<input name='_method' type='hidden' value='delete'>
-			<button type='submit'>Delete photo</button>
-		</form>
-
-		<div>
-			<p>Comments:</p>
+			<a href='/photos/{{ $photo->id }}/edit' class="pure-button pure-button-primary"><i class="fa fa-pencil-square-o"></i></a>
 
 			<div>
-				@foreach($photo->comments as $comment)
-					{{ $comment->comment }}
+				{{ $photo->title }}
+			</div>
 
-					@if($comment->user_id === $user->id)
-						<a href='/comments/{{ $comment->id }}/edit'>Edit comment</a>
+			<div>
+				{{ $photo->description }}
+			</div>
 
-						<form action='/comments/{{ $comment->id }}' method='post'>
-							<input name='_method' type='hidden' value='delete'>
-							<button type='submit'>Delete comment</button>
-						</form>
-					@endif
-
-					<br />
+			<div>
+				@foreach($photo->tags as $tag)
+					<a href='/tags/{{ $tag->id }}'>{{ $tag->name }}</a>
 				@endforeach
 			</div>
 
-			<form action='/comments' method='post'>
-				<input name='photo_id' type='hidden' value='{{ $photo->id }}'>
-				<textarea name='comment' placeholder='Comment'></textarea>
-				<button type='submit'>Comment</button>
+			<div>
+				{{ count($photo->likes) }} likes.
+				
+				<form action='/likes' method='post'>
+					<input name='photo_id' type='hidden' value='{{ $photo->id }}'>
+					<button class="pure-button pure-button-primary" type='submit'>Like</button>
+				</form>
+			</div>
+
+			<form action='/photos/{{ $photo->id }}' method='post'>
+				<input name='_method' type='hidden' value='delete'>
+				<button class="pure-button" type='submit'><i class="fa fa-times"></i></button>
 			</form>
+
+			<div>
+				<p>Comments:</p>
+
+				<div>
+					@foreach($photo->comments as $comment)
+						{{ $comment->comment }}
+
+						@if($comment->user_id === $user->id)
+							<a href='/comments/{{ $comment->id }}/edit' class="pure-button pure-button-primary"><i class="fa fa-pencil-square-o"></i></a>
+
+							<form action='/comments/{{ $comment->id }}' method='post'>
+								<input name='_method' type='hidden' value='delete'>
+								<button class="pure-button" type='submit'><i class="fa fa-times"></i></button>
+							</form>
+						@endif
+
+						<br />
+					@endforeach
+				</div>
+
+				<br />
+
+				<form action='/comments' method='post'>
+					<input name='photo_id' type='hidden' value='{{ $photo->id }}'>
+					<textarea name='comment' placeholder='Comment'></textarea>
+					<button class="pure-button pure-button-primary" type='submit'>Comment</button>
+				</form>
+			</div>
+
 		</div>
 
 	</div>
