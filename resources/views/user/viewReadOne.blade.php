@@ -8,48 +8,44 @@
 
 	{{-- View a user's profile --}}
 
-	<div>
+	<div class='card'>
 
-		<div>
+		<div class='card-header'>
+			<a href='/user/{{ $user->id }}/edit' class="pure-button button-secondary button-xsmall pull-right"><i class="fa fa-pencil-square-o"></i></a>
+		</div>
 
+		<div class='media'>
 			@if($user->image)
 				<img src='/uploads/{{ $user->image }}'>
 			@endif
-			
-			<br />
 
 			<form action='/user/{{ $user->id }}' method='post' enctype='multipart/form-data'>
 				Select image to upload:
 				<input name='image' type='file'>
-				<input class="pure-button pure-button-primary" name='submit' type='submit' value='Save'>
+				<input class="pure-button pure-button-primary button-small" name='submit' type='submit' value='Save'>
 			</form>
-
 		</div>
 
-		<a href='/user/{{ $user->id }}/edit' class="pure-button pure-button-primary"><i class="fa fa-pencil-square-o"></i></a>
+		<div class='media-text'>
+			<div class='text'>
+				<i class="fa fa-circle"></i> {{ $user->name }}
+			</div>
 
-		<br />
+			<div class='text'>
+				<i class="fa fa-circle"></i> {{ $user->email }}
+			</div>
 
-		<br />
+			<div class='text'>
+				<i class="fa fa-circle"></i> {{ $user->gender }}
+			</div>
 
-		<div>
-			{{ $user->name }}
-		</div>
+			<div class='text'>
+				<i class="fa fa-circle"></i> {{ $user->birthday }}
+			</div>
 
-		<div>
-			{{ $user->email }}
-		</div>
-
-		<div>
-			{{ $user->gender }}
-		</div>
-
-		<div>
-			{{ $user->birthday }}
-		</div>
-
-		<div>
-			{{ $user->description }}
+			<div class='text'>
+				<i class="fa fa-circle"></i> {{ $user->description }}
+			</div>
 		</div>
 
 	</div>

@@ -59,16 +59,14 @@ a, a:link, a:visited {
 .form {
   display: inline; }
 
-.delete {
+.card-header {
   margin: 3px; }
 
 .media {
   margin-top: 29px; }
 
 .media-text {
-  margin-top: 20px;
-  margin-left: 20px;
-  margin-right: 20px; }
+  margin: 20px; }
 
 .text {
   padding-top: 5px;
@@ -81,5 +79,8 @@ a, a:link, a:visited {
 .list-errors {
   background-color: #ffca95;
   padding: 1px; }
+
+.fa-circle {
+  margin-right: 5px; }
 
 /*# sourceMappingURL=app.css.map */

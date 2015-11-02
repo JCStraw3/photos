@@ -13,7 +13,7 @@
 		<div class='card'>
 
 			@if($photo->user_id === $user->id)
-				<form action='/photos/{{ $photo->id }}' method='post' class='pull-right delete'>
+				<form action='/photos/{{ $photo->id }}' method='post' class='pull-right card-header'>
 					<input name='_method' type='hidden' value='delete'>
 					<button class="pure-button button-error button-xsmall" type='submit'><i class="fa fa-times"></i></button>
 				</form>
@@ -56,7 +56,7 @@
 
 						<div class='pull-right'>
 							@if($comment->user_id === $user->id)
-								<a href='/comments/{{ $comment->id }}/edit' class="pure-button pure-button-primary button-xsmall"><i class="fa fa-pencil-square-o"></i></a>
+								<a href='/comments/{{ $comment->id }}/edit' class="pure-button button-secondary button-xsmall"><i class="fa fa-pencil-square-o"></i></a>
 
 								<form action='/comments/{{ $comment->id }}' method='post' class='form'>
 									<input name='_method' type='hidden' value='delete'>

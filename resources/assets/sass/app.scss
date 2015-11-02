@@ -102,7 +102,7 @@ a, a:link, a:visited {
 	display: inline;
 }
 
-.delete {
+.card-header {
 	margin: 3px;
 }
 
@@ -113,9 +113,7 @@ a, a:link, a:visited {
 }
 
 .media-text {
-	margin-top: 20px;
-	margin-left: 20px;
-	margin-right: 20px;
+	margin: 20px;
 }
 
 .text {
@@ -133,4 +131,10 @@ a, a:link, a:visited {
 .list-errors {
 	background-color: $listErrors-backgroundColor;
 	padding: 1px;
+}
+
+// Font Awesome classes
+
+.fa-circle {
+	margin-right: 5px;
 }
