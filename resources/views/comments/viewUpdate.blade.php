@@ -4,16 +4,18 @@
 
 	{{-- Edit a comment --}}
 
-	<div>
+	<div class='card'>
 
-		<form action='/comments/{{ $comment->id }}' method='post'>
-			<input name='_method' type='hidden' value='delete'>
-			<button class="pure-button" type='submit'><i class="fa fa-times"></i></button>
-		</form>
+		@if($comment->user_id === $user->id)
+			<form action='/comments/{{ $comment->id }}' method='post' class='pull-right card-header'>
+				<input name='_method' type='hidden' value='delete'>
+				<button class="pure-button button-error button-xsmall" type='submit'><i class="fa fa-times"></i></button>
+			</form>
+		@endif
 
 		<h2>Edit Comment</h2>
 
-		<form action='/comments/{{ $comment->id }}' method='post' class="pure-form pure-form-stacked">
+		<form action='/comments/{{ $comment->id }}' method='post' class="pure-form pure-form-stacked media-text">
 			<fieldset>
 				<input name='_method' type='hidden' value='put'>
 
