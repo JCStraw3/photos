@@ -28,23 +28,23 @@
 
 		<div class='media-text'>
 			<div class='text'>
-				<i class="fa fa-circle"></i> {{ $user->name }}
+				<b>{{ $user->name }}</b>
+
+				<span> | </span>
+
+				{{ $user->email }}
 			</div>
 
 			<div class='text'>
-				<i class="fa fa-circle"></i> {{ $user->email }}
+				{{ $user->gender }}
+
+				<span> | </span>
+
+				{{ $user->birthday }}
 			</div>
 
 			<div class='text'>
-				<i class="fa fa-circle"></i> {{ $user->gender }}
-			</div>
-
-			<div class='text'>
-				<i class="fa fa-circle"></i> {{ $user->birthday }}
-			</div>
-
-			<div class='text'>
-				<i class="fa fa-circle"></i> {{ $user->description }}
+				{{ $user->description }}
 			</div>
 		</div>
 
