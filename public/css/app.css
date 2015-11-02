@@ -11,7 +11,7 @@ h1, h2 {
 .pure-menu {
   background-color: #800040;
   color: white;
-  margin-bottom: 1em; }
+  margin-bottom: 15px; }
 
 .pure-menu-link {
   color: white !important; }
@@ -85,5 +85,8 @@ h1, h2 {
 
 .fa-circle {
   margin-right: 5px; }
+
+.new-tag-button {
+  margin-left: 15px; }
 
 /*# sourceMappingURL=app.css.map */

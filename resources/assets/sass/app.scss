@@ -31,7 +31,7 @@ h1, h2 {
 .pure-menu {
 	background-color: $navbar-backgroundColor;
 	color: white;
-	margin-bottom: 1em;
+	margin-bottom: 15px;
 }
 
 .pure-menu-link {
@@ -141,4 +141,8 @@ h1, h2 {
 
 .fa-circle {
 	margin-right: 5px;
+}
+
+.new-tag-button {
+	margin-left: 15px;
 }

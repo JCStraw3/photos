@@ -5,7 +5,7 @@
 	{{-- Add new tag --}}
 
 	<div>
-		<a href='/tags/create' class="pure-button pure-button-primary"><i class="fa fa-plus"></i> Tag</a>
+		<a href='/tags/create' class="pure-button pure-button-primary new-tag-button"><i class="fa fa-plus"></i> Tag</a>
 	</div>
 
 	<!-- Errors -->
@@ -14,11 +14,11 @@
 
 	{{-- Form to create a new tag --}}
 
-	<div>
+	<div class='card'>
 
 		<h2>New Tag</h2>
 
-		<form action='/tags' method='post' class="pure-form pure-form-stacked">
+		<form action='/tags' method='post' class="pure-form pure-form-stacked media-text">
 			<fieldset>
 				<input name='name' type='text' placeholder='Name' class="pure-input-1">
 

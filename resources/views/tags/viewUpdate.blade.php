@@ -5,7 +5,7 @@
 	{{-- Add new tag --}}
 
 	<div>
-		<a href='/tags/create' class="pure-button pure-button-primary"><i class="fa fa-plus"></i> Tag</a>
+		<a href='/tags/create' class="pure-button pure-button-primary new-tag-button"><i class="fa fa-plus"></i> Tag</a>
 	</div>
 
 	<!-- Errors -->
@@ -14,11 +14,11 @@
 
 	{{-- Form to update a tag --}}
 
-	<div>
+	<div class='card'>
 
 		<h2>Edit Tag</h2>
 
-		<form action='/tags/{{ $tag->id }}' method='post' class="pure-form pure-form-stacked">
+		<form action='/tags/{{ $tag->id }}' method='post' class="pure-form pure-form-stacked media-text">
 			<fieldset>
 				<input name='_method' type='hidden' value='put'>
 

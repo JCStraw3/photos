@@ -5,7 +5,7 @@
 	{{-- Add new tag --}}
 
 	<div>
-		<a href='/tags/create' class="pure-button pure-button-primary"><i class="fa fa-plus"></i> Tag</a>
+		<a href='/tags/create' class="pure-button pure-button-primary new-tag-button"><i class="fa fa-plus"></i> Tag</a>
 	</div>
 
 	<!-- Flash messaging -->
@@ -14,31 +14,21 @@
 
 	{{-- View a specific tag --}}
 
-	<div>
+	<div class='card'>
+
+		<a href='/tags/{{ $tag->id }}/edit' class="pure-button button-secondary button-xsmall pull-right card-header"><i class="fa fa-pencil-square-o"></i></a>
 
 		<h2>{{ $tag->name }}</h2>
 
-		<a href='/tags/{{ $tag->id }}/edit' class="pure-button pure-button-primary"><i class="fa fa-pencil-square-o"></i></a>
+		@foreach($tag->photos as $photo)
+			<div class='media'>
+				<img src='/uploads/{{ $photo->image }}' class="pure-img image">
+			</div>
 
-		<div>
-
-			@foreach($tag->photos as $photo)
-
-				<div>
-
-					<div>
-						<img src='/uploads/{{ $photo->image }}'>
-					</div>
-
-					<div>
-						{{ $photo->title }}
-					</div>
-
-				</div>
-
-			@endforeach
-
-		</div>
+			<div class='media-text'>
+				<a href='/photos/{{ $photo->id }}'><b>{{ $photo->title }}</b></a>
+			</div>
+		@endforeach
 
 	</div>
 
