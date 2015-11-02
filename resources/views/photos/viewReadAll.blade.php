@@ -73,7 +73,7 @@
 					<fieldset>
 						<input name='photo_id' type='hidden' value='{{ $photo->id }}'>
 						<textarea name='comment' placeholder='Comment' class="pure-input-1"></textarea>
-						<button class="pure-button pure-button-primary button-small pure-input-1" type='submit'>Comment</button>
+						<button class="pure-button pure-button-primary pure-input-1" type='submit'>Comment</button>
 					</fieldset>
 				</form>
 

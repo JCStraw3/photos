@@ -5,6 +5,9 @@ a, a:link, a:visited {
   text-decoration: none;
   color: #800040; }
 
+h1, h2 {
+  text-align: center; }
+
 .pure-menu {
   background-color: #800040;
   color: white;

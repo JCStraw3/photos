@@ -8,11 +8,11 @@
 
 	{{-- Form to create a new photo --}}
 
-	<div>
+	<div class='card'>
 
 		<h2>New Photo</h2>
 
-		<div>
+		<div class='media-text'>
 
 			<form action='/photos' method='post' enctype='multipart/form-data' class="pure-form pure-form-stacked">
 				<fieldset>
