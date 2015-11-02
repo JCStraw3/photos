@@ -4,15 +4,19 @@
 
 	{{-- Show home page with links to register and login --}}
 
-	<div style='text-align:center'>
+	<div class='card'>
 
 		<h1>Photos App</h1>
 
-		<div>
+		<div class='media-text'>
 
-			<a href='/auth/register' class="pure-button pure-button-primary pure-u-1-4">Register</a>
+			<div class='text'>
+				<a href='/auth/login' class="pure-button pure-button-primary pure-u-1">Login</a>
+			</div>
 
-			<a href='/auth/login' class="pure-button pure-button-primary pure-u-1-4">Login</a>
+			<div class='text'>
+				<a href='/auth/register' class="pure-button pure-button-primary pure-u-1">Register</a>
+			</div>
 
 		</div>
 

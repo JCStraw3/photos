@@ -23,11 +23,11 @@
 		@endif
 
 		@if(!$user)
-			<li class='pure-menu-item'><a href='/auth/register' class='pure-menu-link'>Register</a></li>
+			<li class='pure-menu-item'><a href='/auth/login' class='pure-menu-link'>Login</a></li>
 
 			<span> | </span>
 
-			<li class='pure-menu-item'><a href='/auth/login' class='pure-menu-link'>Login</a></li>
+			<li class='pure-menu-item'><a href='/auth/register' class='pure-menu-link'>Register</a></li>
 		@endif
 		
 	</ul>
