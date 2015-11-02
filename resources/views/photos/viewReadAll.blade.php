@@ -35,7 +35,7 @@
 				</div>
 
 				<div class='text'>
-					<a href='/photos/{{ $photo->id }}'>{{ $photo->title }}</a>
+					<a href='/photos/{{ $photo->id }}'><b>{{ $photo->title }}</b></a>
 				</div>
 
 				<div class='text'>
