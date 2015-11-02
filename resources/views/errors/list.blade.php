@@ -2,7 +2,7 @@
 
 @if ($errors->any())
 
-	<div>
+	<div class='list-errors'>
 		<ul>
 			@foreach ($errors->all() as $error)
 				<li>{{ $error }}</li>

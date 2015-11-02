@@ -8,6 +8,8 @@ $buttonSuccess-backgroundColor: rgb(28,184,65);
 $buttonError-backgroundColor: rgb(202,60,60);
 $buttonWarning-backgroundColor: rgb(223,117,20);
 $buttonSecondary-backgroundColor: rgb(66,184,221);
+$sessionFlash-backgroundColor: rgb(120,235,146);
+$listErrors-backgroundColor: rgb(255,202,149);
 
 // Basic tags
 
@@ -119,4 +121,16 @@ a, a:link, a:visited {
 .text {
 	padding-top: 5px;
 	padding-bottom: 5px;
+}
+
+// Flash and errors classes
+
+.session-flash {
+	background-color: $sessionFlash-backgroundColor;
+	padding: 10px;	
+}
+
+.list-errors {
+	background-color: $listErrors-backgroundColor;
+	padding: 1px;
 }

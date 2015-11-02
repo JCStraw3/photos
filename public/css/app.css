@@ -74,4 +74,12 @@ a, a:link, a:visited {
   padding-top: 5px;
   padding-bottom: 5px; }
 
+.session-flash {
+  background-color: #78eb92;
+  padding: 10px; }
+
+.list-errors {
+  background-color: #ffca95;
+  padding: 1px; }
+
 /*# sourceMappingURL=app.css.map */
