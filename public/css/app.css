@@ -1,8 +1,9 @@
 body {
   background-color: #f4f4f4; }
 
-a {
-  text-decoration: none; }
+a, a:link, a:visited {
+  text-decoration: none;
+  color: #800040; }
 
 .pure-menu {
   background-color: #800040;
@@ -30,21 +31,24 @@ a {
   border-width: 1px;
   background-color: #ffffff; }
 
+.pure-button {
+  border-radius: 5px;
+  color: #ffffff !important; }
+
 .button-success {
-  color: white;
   background-color: #1cb841; }
 
 .button-error {
-  color: white;
   background-color: #ca3c3c; }
 
 .button-warning {
-  color: white;
   background-color: #df7514; }
 
 .button-secondary {
-  color: white;
   background-color: #42b8dd; }
+
+.button-tag {
+  background-color: #800040; }
 
 .button-xsmall {
   font-size: 70%; }
@@ -55,7 +59,19 @@ a {
 .form {
   display: inline; }
 
+.delete {
+  margin: 3px; }
+
 .media {
-  margin-top: 1em; }
+  margin-top: 29px; }
+
+.media-text {
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px; }
+
+.text {
+  padding-top: 5px;
+  padding-bottom: 5px; }
 
 /*# sourceMappingURL=app.css.map */

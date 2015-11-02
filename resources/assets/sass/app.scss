@@ -1,17 +1,29 @@
+// Color variables
+
+$body-backgroundColor: rgb(244,244,244);
+$navbar-backgroundColor: rgb(128,0,64);
+$card-borderColor: rgb(192,192,192);
+$white: #ffffff;
+$buttonSuccess-backgroundColor: rgb(28,184,65);
+$buttonError-backgroundColor: rgb(202,60,60);
+$buttonWarning-backgroundColor: rgb(223,117,20);
+$buttonSecondary-backgroundColor: rgb(66,184,221);
+
 // Basic tags
 
 body {
-	background-color: rgb(244,244,244);
+	background-color: $body-backgroundColor;
 }
 
-a {
+a, a:link, a:visited {
 	text-decoration: none;
+	color: $navbar-backgroundColor;
 }
 
 // Navbar classes
 
 .pure-menu {
-	background-color: rgb(128,0,64);
+	background-color: $navbar-backgroundColor;
 	color: white;
 	margin-bottom: 1em;
 }
@@ -42,31 +54,36 @@ a {
 	margin-top: 2em;
 	margin-bottom: 2em;
 	border-style: solid;
-	border-color: rgb(192,192,192);
+	border-color: $card-borderColor;
 	border-width: 1px;
-	background-color: #ffffff;
+	background-color: $white;
 }
 
 // Button classes
 
+.pure-button {
+	border-radius: 5px;
+	color: $white !important;
+}
+
 .button-success {
-	color: white;
-	background-color: rgb(28,184,65);
+	background-color: $buttonSuccess-backgroundColor;
 }
 
 .button-error {
-	color: white;
-	background-color: rgb(202,60,60);
+	background-color: $buttonError-backgroundColor;
 }
 
 .button-warning {
-	color: white;
-	background-color: rgb(223,117,20);
+	background-color: $buttonWarning-backgroundColor;
 }
 
 .button-secondary {
-	color: white;
-	background-color: rgb(66,184,221);
+	background-color: $buttonSecondary-backgroundColor;
+}
+
+.button-tag {
+	background-color: $navbar-backgroundColor;
 }
 
 .button-xsmall {
@@ -83,8 +100,23 @@ a {
 	display: inline;
 }
 
+.delete {
+	margin: 3px;
+}
+
 // Media classes
 
 .media {
-	margin-top: 1em;
+	margin-top: 29px;
+}
+
+.media-text {
+	margin-top: 20px;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.text {
+	padding-top: 5px;
+	padding-bottom: 5px;
 }

@@ -13,7 +13,7 @@
 		<div class='card'>
 
 			@if($photo->user_id === $user->id)
-				<form action='/photos/{{ $photo->id }}' method='post' class='pull-right'>
+				<form action='/photos/{{ $photo->id }}' method='post' class='pull-right delete'>
 					<input name='_method' type='hidden' value='delete'>
 					<button class="pure-button button-error button-xsmall" type='submit'><i class="fa fa-times"></i></button>
 				</form>
@@ -24,21 +24,8 @@
 			</div>
 
 			<div class='media-text'>
-				<div>
-					<a href='/photos/{{ $photo->id }}'>{{ $photo->title }}</a>
-				</div>
 
-				<div>
-					{{ $photo->description }}
-				</div>
-
-				<div>
-					@foreach($photo->tags as $tag)
-						<a href='/tags/{{ $tag->id }}'>{{ $tag->name }}</a>
-					@endforeach
-				</div>
-
-				<div>
+				<div class='pull-right'>
 					{{ count($photo->likes) }} likes.
 
 					<form action='/likes' method='post' class='form'>
@@ -47,13 +34,27 @@
 					</form>
 				</div>
 
-				<div>
-					<p>Comments:</p>
+				<div class='text'>
+					<a href='/photos/{{ $photo->id }}'>{{ $photo->title }}</a>
+				</div>
 
-					<div>
-						@foreach($photo->comments as $comment)
-							{{ $comment->comment }}
+				<div class='text'>
+					{{ $photo->description }}
+				</div>
 
+				<div class='text'>
+					@foreach($photo->tags as $tag)
+						<a href='/tags/{{ $tag->id }}' class="pure-button button-tag button-small">{{ $tag->name }}</a>
+					@endforeach
+				</div>
+
+				<hr />
+
+				@foreach($photo->comments as $comment)
+					<div class='text'>
+						<i class="fa fa-circle"></i> {{ $comment->comment }}
+
+						<div class='pull-right'>
 							@if($comment->user_id === $user->id)
 								<a href='/comments/{{ $comment->id }}/edit' class="pure-button pure-button-primary button-xsmall"><i class="fa fa-pencil-square-o"></i></a>
 
@@ -62,19 +63,20 @@
 									<button class="pure-button button-error button-xsmall" type='submit'><i class="fa fa-times"></i></button>
 								</form>
 							@endif
-
-							<br />
-						@endforeach
+						</div>
 					</div>
+				@endforeach
 
-					<br />
+				<hr />
 
-					<form action='/comments' method='post'>
+				<form action='/comments' method='post' class="pure-form pure-form-stacked">
+					<fieldset>
 						<input name='photo_id' type='hidden' value='{{ $photo->id }}'>
-						<textarea name='comment' placeholder='Comment'></textarea>
-						<button class="pure-button pure-button-primary" type='submit'>Comment</button>
-					</form>
-				</div>
+						<textarea name='comment' placeholder='Comment' class="pure-input-1"></textarea>
+						<button class="pure-button pure-button-primary button-small pure-input-1" type='submit'>Comment</button>
+					</fieldset>
+				</form>
+
 			</div>
 
 			<br />
