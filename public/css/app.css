@@ -65,6 +65,9 @@ h1, h2 {
 .card-header {
   margin: 3px; }
 
+.pure-form-stacked textarea {
+  min-height: 75px; }
+
 .media {
   margin-top: 29px; }
 
