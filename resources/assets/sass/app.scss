@@ -27,9 +27,13 @@ a {
 	max-width: 600px;
 }
 
+// Alignment classes
+
 .pull-right {
 	text-align: right;
 }
+
+// Card class
 
 .card {
 	max-width: 600px;
@@ -46,18 +50,22 @@ a {
 // Button classes
 
 .button-success {
+	color: white;
 	background-color: rgb(28,184,65);
 }
 
 .button-error {
+	color: white;
 	background-color: rgb(202,60,60);
 }
 
 .button-warning {
+	color: white;
 	background-color: rgb(223,117,20);
 }
 
 .button-secondary {
+	color: white;
 	background-color: rgb(66,184,221);
 }
 
@@ -65,6 +73,18 @@ a {
 	font-size: 70%;
 }
 
+.button-small {
+	font-size: 85%;
+}
+
+// Form classes
+
 .form {
 	display: inline;
+}
+
+// Media classes
+
+.media {
+	margin-top: 1em;
 }

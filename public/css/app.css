@@ -31,21 +31,31 @@ a {
   background-color: #ffffff; }
 
 .button-success {
+  color: white;
   background-color: #1cb841; }
 
 .button-error {
+  color: white;
   background-color: #ca3c3c; }
 
 .button-warning {
+  color: white;
   background-color: #df7514; }
 
 .button-secondary {
+  color: white;
   background-color: #42b8dd; }
 
 .button-xsmall {
   font-size: 70%; }
 
+.button-small {
+  font-size: 85%; }
+
 .form {
   display: inline; }
+
+.media {
+  margin-top: 1em; }
 
 /*# sourceMappingURL=app.css.map */
