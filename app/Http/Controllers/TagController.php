@@ -18,10 +18,10 @@ class TagController extends Controller {
 
 	public function viewCreate(){
 
-		$user = Auth::user();
+		$authUser = Auth::user();
 
 		return view('tags.viewCreate')
-			->with('user', $user);
+			->with('authUser', $authUser);
 
 	}
 
@@ -29,13 +29,13 @@ class TagController extends Controller {
 
 	public function viewReadAll(){
 
-		$user = Auth::user();
+		$authUser = Auth::user();
 
 		$tags = Tag::orderBy('name', 'asc')->get();
 
 		return view('tags.viewReadAll')
 			->with('tags', $tags)
-			->with('user', $user);
+			->with('authUser', $authUser);
 
 	}
 
@@ -43,13 +43,13 @@ class TagController extends Controller {
 
 	public function viewReadOne($id){
 
-		$user = Auth::user();
+		$authUser = Auth::user();
 
 		$tag = Tag::findOrFail($id);
 
 		return view('tags.viewReadOne')
 			->with('tag', $tag)
-			->with('user', $user);
+			->with('authUser', $authUser);
 
 	}
 
@@ -57,13 +57,13 @@ class TagController extends Controller {
 
 	public function viewUpdate($id){
 
-		$user = Auth::user();
+		$authUser = Auth::user();
 
 		$tag = Tag::findOrFail($id);
 
 		return view('tags.viewUpdate')
 			->with('tag', $tag)
-			->with('user', $user);
+			->with('authUser', $authUser);
 
 	}
 
