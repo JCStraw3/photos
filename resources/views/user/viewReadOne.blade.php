@@ -10,21 +10,24 @@
 
 	<div class='card'>
 
-		@if($user->id === )
-		<div class='card-header'>
-			<a href='/user/{{ $user->id }}/edit' class="pure-button button-secondary button-xsmall pull-right"><i class="fa fa-pencil-square-o"></i></a>
-		</div>
+		@if($authUser->id === $user->id)
+			<div class='card-header'>
+				<a href='/user/{{ $user->id }}/edit' class="pure-button button-secondary button-xsmall pull-right"><i class="fa fa-pencil-square-o"></i></a>
+			</div>
+		@endif
 
 		<div class='media'>
 			@if($user->image)
 				<img src='/uploads/{{ $user->image }}'>
 			@endif
 
-			<form action='/user/{{ $user->id }}' method='post' enctype='multipart/form-data'>
-				Select image to upload:
-				<input name='image' type='file'>
-				<input class="pure-button pure-button-primary button-small" name='submit' type='submit' value='Save'>
-			</form>
+			@if($authUser->id === $user->id)
+				<form action='/user/{{ $user->id }}' method='post' enctype='multipart/form-data'>
+					Select image to upload:
+					<input name='image' type='file'>
+					<input class="pure-button pure-button-primary button-small" name='submit' type='submit' value='Save'>
+				</form>
+			@endif
 		</div>
 
 		<div class='media-text'>
