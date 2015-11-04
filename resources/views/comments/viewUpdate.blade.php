@@ -6,7 +6,7 @@
 
 	<div class='card'>
 
-		@if($comment->user_id === $user->id)
+		@if($comment->user_id === $authUser->id)
 			<form action='/comments/{{ $comment->id }}' method='post' class='pull-right card-header'>
 				<input name='_method' type='hidden' value='delete'>
 				<button class="pure-button button-error button-xsmall" type='submit'><i class="fa fa-times"></i></button>

@@ -14,7 +14,7 @@
 
 			{{ $comment->comment }}
 
-			@if($comment->user_id === $user->id)
+			@if($comment->user_id === $authUser->id)
 				<a href='/comments/{{ $comment->id }}/edit' class="pure-button pure-button-primary"><i class="fa fa-pencil-square-o"></i></a>
 
 				<form action='/comments/{{ $comment->id }}' method='post'>

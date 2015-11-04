@@ -19,15 +19,15 @@ class CommentController extends Controller {
 
 	public function viewReadAll(){
 
-		$user = Auth::user();
+		$authUser = Auth::user();
 
-		$comments = Comment::where('user_id', '=', $user->id)
+		$comments = Comment::where('user_id', '=', $authUser->id)
 			->latest('id')
 			->get();
 
 		return view('comments.viewReadAll')
 			->with('comments', $comments)
-			->with('user', $user);
+			->with('authUser', $authUser);
 
 	}
 
@@ -35,13 +35,13 @@ class CommentController extends Controller {
 
 	public function viewUpdate($id){
 
-		$user = Auth::user();
+		$authUser = Auth::user();
 
 		$comment = Comment::findOrFail($id);
 
 		return view('comments.viewUpdate')
 			->with('comment', $comment)
-			->with('user', $user);
+			->with('authUser', $authUser);
 
 	}
 
@@ -71,9 +71,9 @@ class CommentController extends Controller {
 
 	public function actionUpdate($id, Requests\UpdateCommentRequest $request){
 
-		$user = Auth::user();
+		$authUser = Auth::user();
 
-		$comment = Comment::where('user_id', '=', $user->id)
+		$comment = Comment::where('user_id', '=', $authUser->id)
 			->findOrFail($id);
 
 		$comment->update($request->all());
@@ -90,9 +90,9 @@ class CommentController extends Controller {
 
 	public function actionDelete($id){
 
-		$user = Auth::user();
+		$authUser = Auth::user();
 
-		$comment = Comment::where('user_id', '=', $user->id)
+		$comment = Comment::where('user_id', '=', $authUser->id)
 			->findOrFail($id);
 
 		$comment->delete($comment);
