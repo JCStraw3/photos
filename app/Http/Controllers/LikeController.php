@@ -19,15 +19,15 @@ class LikeController extends Controller {
 
 	public function viewReadAll(){
 
-		$user = Auth::user();
+		$authUser = Auth::user();
 
-		$likes = Like::where('user_id', '=', $user->id)
+		$likes = Like::where('user_id', '=', $authUser->id)
 			->latest('id')
 			->get();
 
 		return view('likes.viewReadAll')
 			->with('likes', $likes)
-			->with('user', $user);
+			->with('authUser', $authUser);
 
 	}
 

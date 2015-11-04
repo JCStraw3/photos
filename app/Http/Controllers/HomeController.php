@@ -14,11 +14,11 @@ class HomeController extends Controller {
 
 		// Check to see if user is logged in.
 
-		$user = Auth::user();
+		$authUser = Auth::user();
 
 		// If user is not logged in, return home page.
 
-		if(!$user){
+		if(!$authUser){
 			return view('viewHome');
 		}
 
