@@ -10,6 +10,7 @@
 
 	<div class='card'>
 
+		@if($user->id === )
 		<div class='card-header'>
 			<a href='/user/{{ $user->id }}/edit' class="pure-button button-secondary button-xsmall pull-right"><i class="fa fa-pencil-square-o"></i></a>
 		</div>

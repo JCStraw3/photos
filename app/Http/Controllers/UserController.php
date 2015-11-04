@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 
 use App\User;
 
+use Auth;
 use Uuid;
 
 class UserController extends Controller {

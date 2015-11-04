@@ -20,13 +20,13 @@ class PhotoController extends Controller {
 
 	public function viewCreate(){
 
-		$user = Auth::user();
+		$authUser = Auth::user();
 
 		$tags = Tag::all();
 
 		return view('photos.viewCreate')
 			->with('tags', $tags)
-			->with('user', $user);
+			->with('authUser', $authUser);
 
 	}
 
@@ -34,26 +34,26 @@ class PhotoController extends Controller {
 
 	public function viewReadAll(){
 
-		$user = Auth::user();
+		$authUser = Auth::user();
 
 		$photos = Photo::latest('id')->get();
 
 		return view('photos.viewReadAll')
 			->with('photos', $photos)
-			->with('user', $user);
+			->with('authUser', $authUser);
 	}
 
 	// View a single photo page.
 
 	public function viewReadOne($id){
 
-		$user = Auth::user();
+		$authUser = Auth::user();
 
 		$photo = Photo::findOrFail($id);
 
 		return view('photos.viewReadOne')
 			->with('photo', $photo)
-			->with('user', $user);
+			->with('authUser', $authUser);
 
 	}
 
@@ -61,7 +61,7 @@ class PhotoController extends Controller {
 
 	public function viewUpdate($id){
 
-		$user = Auth::user();
+		$authUser = Auth::user();
 
 		$photo = Photo::findOrFail($id);
 
@@ -70,7 +70,7 @@ class PhotoController extends Controller {
 		return view('photos.viewUpdate')
 			->with('photo', $photo)
 			->with('tags', $tags)
-			->with('user', $user);
+			->with('authUser', $authUser);
 
 	}
 
@@ -122,9 +122,9 @@ class PhotoController extends Controller {
 
 	public function actionUpdate($id, Requests\UpdatePhotoRequest $request){
 
-		$user = Auth::user();
+		$authUser = Auth::user();
 
-		$photo = Photo::where('user_id', '=', $user->id)
+		$photo = Photo::where('user_id', '=', $authUser->id)
 			->findOrFail($id);
 
 		$photo->update($request->all());
@@ -145,9 +145,9 @@ class PhotoController extends Controller {
 
 	public function actionDelete($id){
 
-		$user = Auth::user();
+		$authUser = Auth::user();
 
-		$photo = Photo::where('user_id', '=', $user->id)
+		$photo = Photo::where('user_id', '=', $authUser->id)
 			->findOrFail($id);
 
 		$photo->delete($photo);
