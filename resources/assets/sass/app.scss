@@ -176,4 +176,25 @@ h1, h2 {
 	max-height: 242px;
 	max-width: 342px;
 	margin-left: 26px;
+	margin-right: 26px;
+}
+
+.user-photo {
+	height: 232px;
+	width: 232px;
+	margin-top: 23px;
+	margin-bottom: 23px;
+	margin-left: 23px;
+}
+
+.user-photoCard {
+	max-width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 2em;
+	margin-bottom: 2em;
+	border-style: solid;
+	border-color: $card-borderColor;
+	border-width: 1px;
+	background-color: $white;	
 }
