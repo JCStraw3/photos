@@ -23,9 +23,12 @@ class UserController extends Controller {
 
 		$user = User::findOrFail($id);
 
+		$photos = $user->photos;
+
 		return view('user.viewReadOne')
 			->with('authUser', $authUser)
-			->with('user', $user);
+			->with('user', $user)
+			->with('photos', $photos);
 
 	}
 

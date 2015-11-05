@@ -54,6 +54,10 @@
 
 	</div>
 
+	@foreach($photos as $photo)
+		<img src='/uploads/{{ $photo->image }}'>
+	@endforeach
+
 @endsection
 
 {{-- @section('toolbar')
