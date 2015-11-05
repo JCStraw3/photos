@@ -59,6 +59,9 @@ h1, h2 {
 .button-small {
   font-size: 85%; }
 
+.new-tag-button {
+  margin-left: 15px; }
+
 .form {
   display: inline; }
 
@@ -89,7 +92,26 @@ h1, h2 {
 .fa-circle {
   margin-right: 5px; }
 
-.new-tag-button {
-  margin-left: 15px; }
+.user-card {
+  max-width: 800px;
+  height: 330px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  border-style: solid;
+  border-color: silver;
+  border-width: 1px;
+  background-color: #ffffff; }
+
+.user-media {
+  margin-top: 23px;
+  max-width: 400px;
+  float: left; }
+
+.user-image {
+  max-height: 242px;
+  max-width: 342px;
+  margin-left: 26px; }
 
 /*# sourceMappingURL=app.css.map */

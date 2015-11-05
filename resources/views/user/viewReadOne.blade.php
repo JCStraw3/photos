@@ -8,7 +8,7 @@
 
 	{{-- View a user's profile --}}
 
-	<div class='card'>
+	<div class='user-card'>
 
 		@if($authUser->id === $user->id)
 			<div class='card-header'>
@@ -16,9 +16,9 @@
 			</div>
 		@endif
 
-		<div class='media'>
+		<div class='user-media'>
 			@if($user->image)
-				<img src='/uploads/{{ $user->image }}'>
+				<img src='/uploads/{{ $user->image }}' class="pure-img user-image">
 			@endif
 
 			@if($authUser->id === $user->id)
@@ -33,9 +33,11 @@
 		<div class='media-text'>
 			<div class='text'>
 				<b>{{ $user->name }}</b>
+			</div>
 
-				<span> | </span>
+			<hr />
 
+			<div class='text'>
 				{{ $user->email }}
 			</div>
 
@@ -47,6 +49,8 @@
 				{{ $user->birthday }}
 			</div>
 
+			<hr />
+
 			<div class='text'>
 				{{ $user->description }}
 			</div>
@@ -54,9 +58,9 @@
 
 	</div>
 
-	@foreach($photos as $photo)
+{{-- 	@foreach($photos as $photo)
 		<img src='/uploads/{{ $photo->image }}'>
-	@endforeach
+	@endforeach --}}
 
 @endsection
 

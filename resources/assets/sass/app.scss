@@ -51,7 +51,7 @@ h1, h2 {
 	text-align: right;
 }
 
-// Card class
+// Card classes
 
 .card {
 	max-width: 600px;
@@ -98,6 +98,10 @@ h1, h2 {
 
 .button-small {
 	font-size: 85%;
+}
+
+.new-tag-button {
+	margin-left: 15px;
 }
 
 // Form classes
@@ -147,6 +151,29 @@ h1, h2 {
 	margin-right: 5px;
 }
 
-.new-tag-button {
-	margin-left: 15px;
+// User view classes
+
+.user-card {
+	max-width: 800px;
+	height: 330px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 2em;
+	margin-bottom: 2em;
+	border-style: solid;
+	border-color: $card-borderColor;
+	border-width: 1px;
+	background-color: $white;	
+}
+
+.user-media {
+	margin-top: 23px;
+	max-width: 400px;
+	float: left;
+}
+
+.user-image {
+	max-height: 242px;
+	max-width: 342px;
+	margin-left: 26px;
 }
