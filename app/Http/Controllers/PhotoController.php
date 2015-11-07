@@ -81,12 +81,16 @@ class PhotoController extends Controller {
 
 		$photo = Photo::findOrFail($id);
 
+		$userId = $photo->user_id;
+		$user = User::findOrFail($userId);
+
 		$tags = Tag::all();
 
 		return view('photos.viewUpdate')
 			->with('photo', $photo)
 			->with('tags', $tags)
-			->with('authUser', $authUser);
+			->with('authUser', $authUser)
+			->with('user', $user);
 
 	}
 

@@ -56,9 +56,13 @@ class CommentController extends Controller {
 
 		$comment = Comment::findOrFail($id);
 
+		$userId = $comment->user_id;
+		$user = User::findOrFail($userId);
+
 		return view('comments.viewUpdate')
 			->with('comment', $comment)
-			->with('authUser', $authUser);
+			->with('authUser', $authUser)
+			->with('user', $user);
 
 	}
 
