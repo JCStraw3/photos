@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 
 use App\Photo;
 use App\Tag;
+use App\User;
 
 use Auth;
 use Uuid;
@@ -38,9 +39,24 @@ class PhotoController extends Controller {
 
 		$photos = Photo::latest('id')->get();
 
+		// foreach($photos as $photo){
+		// 	$id = $photo->user_id;
+		// 	$user = User::findOrFail($id);
+		// }
+
+		// foreach($photos as $photo){
+		// 	$comments = $photo->comments;
+		// 	foreach($comments as $comment){
+		// 		$userId = $comment->user_id;
+		// 		$commentUser = User::findOrFail($userId);
+		// 	}
+		// }
+
 		return view('photos.viewReadAll')
 			->with('photos', $photos)
 			->with('authUser', $authUser);
+			// ->with('user', $user)
+			// ->with('commentUser', $commentUser);
 	}
 
 	// View a single photo page.

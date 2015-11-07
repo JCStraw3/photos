@@ -12,6 +12,8 @@
 
 		<div class='card'>
 
+			{{-- <a href='/user/{{ $user->id }}'><b>{{ $user->name }}</b></a> --}}
+
 			@if($photo->user_id === $authUser->id)
 				<form action='/photos/{{ $photo->id }}' method='post' class='pull-right card-header'>
 					<input name='_method' type='hidden' value='delete'>

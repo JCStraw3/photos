@@ -11,6 +11,10 @@
 	</div>
 
 	@foreach($likes as $like)
+		{{-- <div class='media'>
+			<img src='/uploads/{{ $photo->image }}' class="pure-img image">
+		</div> --}}
+		
 		<div>
 			{{ $like->photo }}
 		</div>

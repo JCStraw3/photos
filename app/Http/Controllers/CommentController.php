@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 
 use App\Comment;
 use App\Photo;
+use App\User;
 
 use Auth;
 
@@ -25,9 +26,25 @@ class CommentController extends Controller {
 			->latest('id')
 			->get();
 
+		foreach($comments as $comment){
+
+			$id = $comment->user_id;
+
+			$user = User::findOrFail($id);
+		}
+
+		// foreach($comments as $comment){
+
+		// 	$id = $comment->photo_id;
+
+		// 	$photo = Photo::findOrFail($id);
+		// }
+
 		return view('comments.viewReadAll')
 			->with('comments', $comments)
-			->with('authUser', $authUser);
+			->with('authUser', $authUser)
+			->with('user', $user);
+			// ->with('photo', $photo);
 
 	}
 

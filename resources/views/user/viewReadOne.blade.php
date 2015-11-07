@@ -38,6 +38,18 @@
 			<hr />
 
 			<div class='text'>
+				@if($authUser->id === $user->id)
+					<a href='/comments' class="pure-button button-tag button-small">Comments</a>
+
+					<a href='/likes' class="pure-button button-tag button-small">Likes</a>
+				@endif
+			</div>
+
+			@if($authUser->id === $user->id)
+				<hr />
+			@endif
+
+			<div class='text'>
 				{{ $user->email }}
 			</div>
 
