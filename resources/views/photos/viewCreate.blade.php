@@ -20,7 +20,7 @@
 
 					<textarea name='description' type='text' placeholder='Description' class='pure-input-1'></textarea>
 				
-					<select name='tags[]' multiple class='pure-input-1'>
+					<select id='tag' name='tags[]' multiple class='pure-input-1'>
 						@foreach($tags as $tag)
 							<option value='{{ $tag->id }}'>{{ $tag->name }}</option>
 						@endforeach
@@ -43,6 +43,11 @@
 
 	{{-- Select2 scripts --}}
 
-
+	<script type='text/javascript'>
+		$('#tag').select2({
+			placeholder: 'Tags',
+			tags: true,
+		});
+	</script>
 
 @endsection
