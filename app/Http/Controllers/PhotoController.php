@@ -21,9 +21,15 @@ class PhotoController extends Controller {
 
 	public function viewCreate(){
 
+		// Set logged in user to a variable.
+
 		$authUser = Auth::user();
 
+		// Find all tags in database.
+
 		$tags = Tag::all();
+
+		// Return view with variables.
 
 		return view('photos.viewCreate')
 			->with('tags', $tags)
@@ -35,7 +41,11 @@ class PhotoController extends Controller {
 
 	public function viewReadAll(){
 
+		// Set logged in user to a variable.
+
 		$authUser = Auth::user();
+
+		// Find photos in database.
 
 		$photos = Photo::latest('id')->get();
 
@@ -52,6 +62,8 @@ class PhotoController extends Controller {
 		// 	}
 		// }
 
+		// Return view with variables.
+
 		return view('photos.viewReadAll')
 			->with('photos', $photos)
 			->with('authUser', $authUser);
@@ -63,9 +75,15 @@ class PhotoController extends Controller {
 
 	public function viewReadOne($id){
 
+		// Set logged in user to a variable.
+
 		$authUser = Auth::user();
 
+		// Find photo in database.
+
 		$photo = Photo::findOrFail($id);
+
+		// Return view with variables.
 
 		return view('photos.viewReadOne')
 			->with('photo', $photo)
@@ -77,14 +95,25 @@ class PhotoController extends Controller {
 
 	public function viewUpdate($id){
 
+		// Set logged in user to a variable.
+
 		$authUser = Auth::user();
+
+		// Find photo in database.
 
 		$photo = Photo::findOrFail($id);
 
+		// Find the photo's user in database, set to variable.
+
 		$userId = $photo->user_id;
+		
 		$user = User::findOrFail($userId);
 
+		// Find all tags in database.
+
 		$tags = Tag::all();
+
+		// Return view with variables.
 
 		return view('photos.viewUpdate')
 			->with('photo', $photo)
@@ -100,7 +129,13 @@ class PhotoController extends Controller {
 
 	public function actionCreate(Requests\CreatePhotoRequest $request){
 
+		// Create a new model and populate it with the request
+		// Set that into a variable.
+
 		$photo = new Photo($request->all());
+
+		// Check to see if image exists and is valid
+		// Redirect with flash message if not.
 
 		if(!$request->hasFile('image')){
 			\Session::flash('flash_message', 'No file selected.');
@@ -114,23 +149,37 @@ class PhotoController extends Controller {
 			return redirect('/photos');
 		}
 
+		// Set destination path.
+
 		$destinationPath = 'uploads';
+
+		// Set extension.
 
 		$extension = $request->file('image')->getClientOriginalExtension();
 
+		// Set file name.
+
 		$fileName = Uuid::generate(4).'.'.$extension;
+
+		// Move file to destination path.
 
 		$request->file('image')->move($destinationPath, $fileName);
 
+		// Set file name as photo's image.
+
 		$photo->image = $fileName;
 
+		// Save photo.
+
 		Auth::user()->photos()->save($photo);
+
+		// Attach tags to photo.
 
 		$tags = $request->input('tags');
 
 		$photo->tags()->attach($tags);
 
-		// Send flash message.
+		// Redirect with flash message.
 
 		\Session::flash('flash_message', 'You have successfully created a photo.');
 
@@ -142,18 +191,26 @@ class PhotoController extends Controller {
 
 	public function actionUpdate($id, Requests\UpdatePhotoRequest $request){
 
+		// Set logged in user to a variable.
+
 		$authUser = Auth::user();
+
+		// Find photo in database.
 
 		$photo = Photo::where('user_id', '=', $authUser->id)
 			->findOrFail($id);
 
+		// Update photo in database.
+
 		$photo->update($request->all());
+
+		// Sync tags to photo.
 
 		$tags = $request->input('tags');
 
 		$photo->tags()->sync($tags);
 
-		// Send flash message.
+		// Redirect with flash message.
 
 		\Session::flash('flash_message', 'You have successfully updated a photo.');
 
@@ -165,14 +222,20 @@ class PhotoController extends Controller {
 
 	public function actionDelete($id){
 
+		// Set logged in user to a variable.
+
 		$authUser = Auth::user();
+
+		// Find photo in database.
 
 		$photo = Photo::where('user_id', '=', $authUser->id)
 			->findOrFail($id);
 
+		// Delete photo from database.
+
 		$photo->delete($photo);
 
-		// Send flash message.
+		// Redirect with flash message.
 
 		\Session::flash('flash_message', 'You have successfully deleted a photo.');
 
