@@ -22,8 +22,8 @@
 
 		@foreach($tags as $tag)
 
-			<div class='media-text'>
-				<a href='/tags/{{ $tag->id }}' class="pure-button button-tag button-small">{{ $tag->name }}</a>
+			<div class='media-text pure-u-1-4'>
+				<a href='/tags/{{ $tag->id }}' class="pure-button button-tag button-small pure-u-1">{{ $tag->name }}</a>
 			</div>
 
 		@endforeach
