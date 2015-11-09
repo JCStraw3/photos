@@ -106,7 +106,7 @@ class PhotoController extends Controller {
 		// Find the photo's user in database, set to variable.
 
 		$userId = $photo->user_id;
-		
+
 		$user = User::findOrFail($userId);
 
 		// Find all tags in database.
@@ -129,8 +129,7 @@ class PhotoController extends Controller {
 
 	public function actionCreate(Requests\CreatePhotoRequest $request){
 
-		// Create a new model and populate it with the request
-		// Set that into a variable.
+		// Create a new model and populate it with the request.
 
 		$photo = new Photo($request->all());
 

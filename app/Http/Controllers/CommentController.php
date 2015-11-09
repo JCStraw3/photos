@@ -20,11 +20,17 @@ class CommentController extends Controller {
 
 	public function viewReadAll(){
 
+		// Set logged in user to a variable.
+
 		$authUser = Auth::user();
+
+		// Find user's comments in database.
 
 		$comments = Comment::where('user_id', '=', $authUser->id)
 			->latest('id')
 			->get();
+
+		// Find comment's user in database.
 
 		foreach($comments as $comment){
 
@@ -40,6 +46,8 @@ class CommentController extends Controller {
 		// 	$photo = Photo::findOrFail($id);
 		// }
 
+		// Return view with variables.
+
 		return view('comments.viewReadAll')
 			->with('comments', $comments)
 			->with('authUser', $authUser)
@@ -52,12 +60,21 @@ class CommentController extends Controller {
 
 	public function viewUpdate($id){
 
+		// Set logged in user to a variable.
+
 		$authUser = Auth::user();
+
+		// Find comment in database.
 
 		$comment = Comment::findOrFail($id);
 
+		// Find the comment's user in database, set to variable.
+
 		$userId = $comment->user_id;
+
 		$user = User::findOrFail($userId);
+
+		// Return view with variables.
 
 		return view('comments.viewUpdate')
 			->with('comment', $comment)
@@ -72,15 +89,23 @@ class CommentController extends Controller {
 
 	public function actionCreate(Requests\CreateCommentRequest $request){
 
+		// Create a new model and populate it with the request.
+
 		$comment = new Comment($request->all());
+
+		// Find in the database the photo id in the request.
 
 		$photo = Photo::findOrFail($request->input('photo_id'));
 
+		// Attach the comment to the photo.
+
 		$comment = $photo->comments()->save($comment);
+
+		// Save the comment.
 
 		Auth::user()->comments()->save($comment);
 
-		// Send flash message.
+		// Redirect with flash message.
 
 		\Session::flash('flash_message', 'You have successfully commented on a photo.');
 
@@ -92,14 +117,20 @@ class CommentController extends Controller {
 
 	public function actionUpdate($id, Requests\UpdateCommentRequest $request){
 
+		// Set logged in user to a variable.
+
 		$authUser = Auth::user();
+
+		// Find comment in database.
 
 		$comment = Comment::where('user_id', '=', $authUser->id)
 			->findOrFail($id);
 
+		// Update comment in database.
+
 		$comment->update($request->all());
 
-		// Send flash message.
+		// Redirect with flash message.
 
 		\Session::flash('flash_message', 'You have successfully updated your comment.');
 
@@ -111,12 +142,22 @@ class CommentController extends Controller {
 
 	public function actionDelete($id){
 
+		// Set logged in user to a variable.
+
 		$authUser = Auth::user();
+
+		// Find comment in database.
 
 		$comment = Comment::where('user_id', '=', $authUser->id)
 			->findOrFail($id);
 
+		// Delete comment from database.
+
 		$comment->delete($comment);
+
+		// Redirect with flash message.
+
+		\Session::flash('flash_message', 'You have successfully deleted your comment.');
 
 		return redirect('/photos');
 
