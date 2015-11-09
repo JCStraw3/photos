@@ -10,6 +10,8 @@ use Auth;
 
 class HomeController extends Controller {
 
+	// View the home page.
+
 	public function viewHome(){
 
 		// Check to see if user is logged in.

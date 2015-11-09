@@ -89,11 +89,11 @@ class CommentController extends Controller {
 
 	public function actionCreate(Requests\CreateCommentRequest $request){
 
-		// Create a new model and populate it with the request.
+		// Create a new model instance and populate it with the request.
 
 		$comment = new Comment($request->all());
 
-		// Find in the database the photo id in the request.
+		// Find in the database the photo sent with the request.
 
 		$photo = Photo::findOrFail($request->input('photo_id'));
 
@@ -101,7 +101,7 @@ class CommentController extends Controller {
 
 		$comment = $photo->comments()->save($comment);
 
-		// Save the comment.
+		// Save the comment in the database.
 
 		Auth::user()->comments()->save($comment);
 

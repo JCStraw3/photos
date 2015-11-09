@@ -129,7 +129,7 @@ class PhotoController extends Controller {
 
 	public function actionCreate(Requests\CreatePhotoRequest $request){
 
-		// Create a new model and populate it with the request.
+		// Create a new model instance and populate it with the request.
 
 		$photo = new Photo($request->all());
 

@@ -19,11 +19,19 @@ class UserController extends Controller {
 
 	public function viewReadOne($id){
 
+		// Set logged in user to a variable.
+
 		$authUser = Auth::user();
+
+		// Find the user in the database.
 
 		$user = User::findOrFail($id);
 
+		// Set user's photos into variable.
+
 		$photos = $user->photos;
+
+		// Return view with variables.
 
 		return view('user.viewReadOne')
 			->with('authUser', $authUser)
@@ -36,9 +44,15 @@ class UserController extends Controller {
 
 	public function viewUpdate($id){
 
+		// Set logged in user to a variable.
+
 		$authUser = Auth::user();
 
+		// Find the user in the database.
+
 		$user = User::findOrFail($id);
+
+		// Return view with variables.
 
 		return view('user.viewUpdate')
 			->with('authUser', $authUser)
@@ -73,7 +87,7 @@ class UserController extends Controller {
 
 		$user->update($request->all());
 
-		// Send flash message and redirect.
+		// Redirect with flash message.
 
 		\Session::flash('flash_message', 'You have successfully updated your user profile.');
 
@@ -94,7 +108,7 @@ class UserController extends Controller {
 		$user = User::findOrFail($id);
 
 		// Check to see if user profile belongs to logged in user
-		// If not, redirect with flash message
+		// If not, redirect with flash message.
 
 		if($authUser->id !== $user->id){
 			\Session::flash('flash_message', 'You are not authorized to edit this profile.');
@@ -103,7 +117,7 @@ class UserController extends Controller {
 		}
 
 		// Check to see if image is exists and is valid
-		// If not, redirect with flash message
+		// If not, redirect with flash message.
 
 		if(!$request->hasFile('image')){
 			\Session::flash('flash_message', 'No file selected.');
@@ -117,21 +131,31 @@ class UserController extends Controller {
 			return redirect('/user/'.$id);
 		}
 
-		// Upload a photo and save to the database.
+		// Set destination path.
 
 		$destinationPath = 'uploads';
 
+		// Set extension.
+
 		$extension = $request->file('image')->getClientOriginalExtension();
+
+		// Set file name.
 
 		$fileName = Uuid::generate(4).'.'.$extension;
 
+		// Move file to destination path.
+
 		$request->file('image')->move($destinationPath, $fileName);
+
+		// Set file name as user's image.
 
 		$user->image = $fileName;
 
+		// Save user.
+
 		$user->save();
 
-		// Send flash message and redirect.
+		// Redirect with flash message.
 
 		\Session::flash('flash_message', 'You have successfully uploaded a user photo.');
 
