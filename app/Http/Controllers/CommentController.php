@@ -74,6 +74,12 @@ class CommentController extends Controller {
 
 		$user = User::findOrFail($userId);
 
+		// If logged in user does not own photo, return error.
+
+		if($authUser->id !== $user->id){
+			return view('errors.403');
+		}
+
 		// Return view with variables.
 
 		return view('comments.viewUpdate')
