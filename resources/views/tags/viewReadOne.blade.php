@@ -23,7 +23,9 @@
 		<h2>{{ $tag->name }}</h2>
 
 		@foreach($tag->photos as $photo)
-			<a href='/photos/{{ $photo->id }}'><img src='/uploads/{{ $photo->image }}' class="pure-img tag-photo pure-u-1-2"></a>
+			@if($photo->private === 0)
+				<a href='/photos/{{ $photo->id }}'><img src='/uploads/{{ $photo->image }}' class="pure-img tag-photo pure-u-1-2"></a>
+			@endif
 		@endforeach
 
 	</div>

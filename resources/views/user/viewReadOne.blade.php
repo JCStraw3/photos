@@ -72,7 +72,9 @@
 
 	<div class='user-photoCard'>
 		@foreach($photos as $photo)
-			<a href='/photos/{{ $photo->id }}'><img src='/uploads/{{ $photo->image }}' class="pure-img user-photo pure-u-1-3"></a>
+			@if($photo->private === 0)
+				<a href='/photos/{{ $photo->id }}'><img src='/uploads/{{ $photo->image }}' class="pure-img user-photo pure-u-1-3"></a>
+			@endif
 		@endforeach
 	</div>
 
