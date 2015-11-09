@@ -176,7 +176,13 @@ class PhotoController extends Controller {
 
 		$tags = $request->input('tags');
 
-		$photo->tags()->attach($tags);
+		if(!is_array($tags)){
+			$tags = [];
+		}
+
+		$tagSync = $this->checkTags($tags);
+
+		$photo->tags()->sync($tagSync);
 
 		// Redirect with flash message.
 
@@ -207,7 +213,13 @@ class PhotoController extends Controller {
 
 		$tags = $request->input('tags');
 
-		$photo->tags()->sync($tags);
+		if(!is_array($tags)){
+			$tags = [];
+		}
+
+		$tagSync = $this->checkTags($tags);
+
+		$photo->tags()->sync($tagSync);
 
 		// Redirect with flash message.
 
@@ -240,6 +252,43 @@ class PhotoController extends Controller {
 
 		return redirect('photos');
 
-	}	
+	}
+
+// Private functions
+
+	// Add tag to database if it does not exist.
+
+	private function checkTags($tags){
+
+		// Set logged in user to a variable.
+
+		$user = Auth::user();
+
+		// Filter the tags already in database.
+
+		$currentTags = array_filter($tags, 'is_numeric');
+
+		// Check for new tags and new tags into a variable.
+
+		$newTags = array_diff($tags, $currentTags);
+
+		// Create a new model instance, populate it with the new tags, and save to db.
+
+		foreach($newTags as $newTag){
+
+			$tag = Tag::create([
+				'name' => $newTag,
+				]);
+
+			$tag->save();
+
+			$currentTags[] = $tag->id;
+		}
+
+		// Return all tags.
+
+		return $currentTags;
+
+	}
 
 }

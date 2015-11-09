@@ -22,7 +22,7 @@
 			@endif
 
 			<div class='media'>
-				<img src='/uploads/{{ $photo->image }}' class="pure-img image">
+				<a href='/photos/{{ $photo->id }}'><img src='/uploads/{{ $photo->image }}' class="pure-img image"></a>
 			</div>
 
 			<div class='media-text'>
