@@ -18,7 +18,11 @@ class TagController extends Controller {
 
 	public function viewCreate(){
 
+		// Set logged in user to a variable.
+
 		$authUser = Auth::user();
+
+		// Return view with variables.
 
 		return view('tags.viewCreate')
 			->with('authUser', $authUser);
@@ -29,9 +33,15 @@ class TagController extends Controller {
 
 	public function viewReadAll(){
 
+		// Set logged in user to a variable.
+
 		$authUser = Auth::user();
 
+		// Find all tags in database.
+
 		$tags = Tag::orderBy('name', 'asc')->get();
+
+		// Return view with variables.
 
 		return view('tags.viewReadAll')
 			->with('tags', $tags)
@@ -43,9 +53,15 @@ class TagController extends Controller {
 
 	public function viewReadOne($id){
 
+		// Set logged in user to a variable.
+
 		$authUser = Auth::user();
 
+		// Find tag in database.
+
 		$tag = Tag::findOrFail($id);
+
+		// Return view with variables.
 
 		return view('tags.viewReadOne')
 			->with('tag', $tag)
@@ -57,9 +73,15 @@ class TagController extends Controller {
 
 	public function viewUpdate($id){
 
+		// Set logged in user to a variable.
+
 		$authUser = Auth::user();
 
+		// Find tag in database.
+
 		$tag = Tag::findOrFail($id);
+
+		// Return view with variables.
 
 		return view('tags.viewUpdate')
 			->with('tag', $tag)
@@ -73,11 +95,15 @@ class TagController extends Controller {
 
 	public function actionCreate(Requests\CreateTagRequest $request){
 
+		// Create a new model instance and populate it with the request.
+
 		$tag = new Tag($request->all());
+
+		// Save tag in database.
 
 		$tag->save();
 
-		// Send flash message.
+		// Redirect with flash message.
 
 		\Session::flash('flash_message', 'You have successfully created a tag.');
 
@@ -89,11 +115,15 @@ class TagController extends Controller {
 
 	public function actionUpdate($id, Requests\UpdateTagRequest $request){
 
+		// Find tag in database.
+
 		$tag = Tag::findOrFail($id);
+
+		// Update tag in database.
 
 		$tag->update($request->all());
 
-		// Send flash message.
+		// Redirect with flash message.
 
 		\Session::flash('flash_message', 'You have successfully updated a tag.');
 
