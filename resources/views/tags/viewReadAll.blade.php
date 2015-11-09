@@ -2,9 +2,11 @@
 
 @section('content')
 
-	{{-- Add new tag --}}
+	{{-- Tag navbar --}}
 
 	<div>
+		<a href='/tags' class="pure-button button-tag new-tag-button">Tags</a>
+
 		<a href='/tags/create' class="pure-button pure-button-primary new-tag-button"><i class="fa fa-plus"></i> Tag</a>
 	</div>
 
