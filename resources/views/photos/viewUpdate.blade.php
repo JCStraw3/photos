@@ -27,6 +27,12 @@
 						<textarea name='description' type='text' placeholder='Description' class="pure-input-1">{{ $photo->description }}</textarea>
 
 						<select id='tag' name='tags[]' multiple class="pure-input-1">
+							@if($photo->tags)
+								@foreach($photo->tags as $tag)
+									<option value='{{ $tag->id }}' selected>{{ $tag->name }}</option>
+								@endforeach
+							@endif
+
 							@foreach($tags as $tag)
 								<option value='{{ $tag->id }}'>{{ $tag->name }}</option>
 							@endforeach
