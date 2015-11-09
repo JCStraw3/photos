@@ -23,13 +23,7 @@
 		<h2>{{ $tag->name }}</h2>
 
 		@foreach($tag->photos as $photo)
-			<div class='media'>
-				<img src='/uploads/{{ $photo->image }}' class="pure-img image">
-			</div>
-
-			<div class='media-text'>
-				<a href='/photos/{{ $photo->id }}'><b>{{ $photo->title }}</b></a>
-			</div>
+			<a href='/photos/{{ $photo->id }}'><img src='/uploads/{{ $photo->image }}' class="pure-img tag-photo pure-u-1-2"></a>
 		@endforeach
 
 	</div>

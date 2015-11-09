@@ -133,4 +133,11 @@ h1, h2 {
   border-width: 1px;
   background-color: #ffffff; }
 
+.tag-photo {
+  height: 232px;
+  width: 232px;
+  margin-top: 23px;
+  margin-bottom: 23px;
+  margin-left: 43px; }
+
 /*# sourceMappingURL=app.css.map */
