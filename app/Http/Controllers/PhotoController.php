@@ -68,8 +68,12 @@ class PhotoController extends Controller {
 
 		$photo = Photo::findOrFail($id);
 
-		if($photo->private === true){
+		// If logged in user does not own photo and photo is private, return error.
 
+		if($authUser->id !== $photo->user_id){
+			if($photo->private === 1){
+				return view('errors.403');
+			}
 		}
 
 		// Return view with variables.
