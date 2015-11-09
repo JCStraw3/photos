@@ -30,7 +30,7 @@
 
 				<form action='/likes' method='post' class='form'>
 					<input name='photo_id' type='hidden' value='{{ $photo->id }}'>
-					<button class="pure-button pure-button-primary button-xsmall" type='submit'>Like</button>
+					<button class="pure-button pure-button-primary button-xsmall" type='submit'><i class="fa fa-star"></i></button>
 				</form>
 			</div>
 
@@ -43,7 +43,11 @@
 			</div>
 
 			<div class='text'>
-				{{ $photo->private }}
+				Privacy: {{ $photo->private }}
+			</div>
+
+			<div class='text'>
+				User: {{ $photo->user_id }}
 			</div>
 
 			<div class='text'>

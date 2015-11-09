@@ -39,9 +39,9 @@
 
 			<div class='text'>
 				@if($authUser->id === $user->id)
-					<a href='/comments' class="pure-button button-tag button-small">Comments</a>
+					<a href='/comments' class="pure-button button-tag button-small"><i class="fa fa-comment"></i> Comments</a>
 
-					<a href='/likes' class="pure-button button-tag button-small">Likes</a>
+					<a href='/likes' class="pure-button button-tag button-small"><i class="fa fa-star"></i> Likes</a>
 				@endif
 			</div>
 
