@@ -6,6 +6,10 @@
 
 	@include('partials.flash')
 
+	{{-- Pagination links --}}
+
+	{!! $photos->render() !!}
+
 	{{-- View all photos --}}
 
 	@foreach ($photos as $photo)
@@ -94,5 +98,9 @@
 		</div>
 
 	@endforeach
+
+	{{-- Pagination links --}}
+
+	{!! $photos->render() !!}
 
 @endsection

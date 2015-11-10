@@ -47,7 +47,7 @@ class PhotoController extends Controller {
 
 		// Find photos in database.
 
-		$photos = Photo::latest('id')->get();
+		$photos = Photo::latest('id')->paginate(10);
 
 		// Return view with variables.
 
