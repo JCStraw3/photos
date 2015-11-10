@@ -7,6 +7,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\User;
+use App\Photo;
 
 use Auth;
 use Uuid;
@@ -27,9 +28,24 @@ class UserController extends Controller {
 
 		$user = User::findOrFail($id);
 
-		// Set user's photos into variable.
+		// if($authUser->id !== $user->id){
 
-		$photos = $user->photos;
+		// 	$photos = Photo::where(function ($query){
+		// 		$query->where('user_id', '=', $user->id)
+		// 			->where('private', '=', 0);
+		// 	})
+		// 	->latest('id')
+		// 	->get();
+
+		// 	return view('user.viewReadOne')
+		// 		->with('authUser', $authUser)
+		// 		->with('user', $user)
+		// 		->with('photos', $photos);
+		// }
+
+		$photos = Photo::where('user_id', '=', $user->id)
+			->latest('id')
+			->get();
 
 		// Return view with variables.
 
