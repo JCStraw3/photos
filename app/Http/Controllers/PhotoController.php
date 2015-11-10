@@ -47,7 +47,10 @@ class PhotoController extends Controller {
 
 		// Find photos in database.
 
-		$photos = Photo::latest('id')->paginate(10);
+		$photos = Photo::where('user_id', '=', $authUser->id)
+			->orWhere('private', '=', 0)
+			->latest('id')
+			->paginate(10);
 
 		// Return view with variables.
 
