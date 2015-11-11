@@ -52,11 +52,16 @@ class PhotoController extends Controller {
 			->latest('id')
 			->paginate(10);
 
+		// Find all users in the database.
+
+		$users = User::all();
+
 		// Return view with variables.
 
 		return view('photos.viewReadAll')
 			->with('photos', $photos)
-			->with('authUser', $authUser);
+			->with('authUser', $authUser)
+			->with('users', $users);
 	}
 
 	// View a single photo page.
