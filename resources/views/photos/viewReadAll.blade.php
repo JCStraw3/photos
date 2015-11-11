@@ -71,7 +71,7 @@
 				@foreach($photo->comments as $comment)
 					<div class='text'>
 						@foreach($users as $user)
-							@if($user->id === $photo->user_id)
+							@if($user->id === $comment->user_id)
 								<a href='/user/{{ $user->id }}'><b>{{ $user->name }}</b></a>
 							@endif
 						@endforeach
