@@ -29,17 +29,16 @@ class LikeController extends Controller {
 			->latest('id')
 			->get();
 
-		// foreach($likes as $like){
-		// 	$id = $like->photo_id;
-		// 	$photo = Photo::findOrFail($id);
-		// }
+		// Find all photos in the database.
+
+		$photos = Photo::all();
 
 		// Return view with variables.
 
 		return view('likes.viewReadAll')
 			->with('likes', $likes)
-			->with('authUser', $authUser);
-			// ->with('photo', $photo);
+			->with('authUser', $authUser)
+			->with('photos', $photos);
 
 	}
 

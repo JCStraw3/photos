@@ -4,20 +4,24 @@
 
 	{{-- View all likes made by a user --}}
 
-	<h2>Likes</h2>
+	<div class='card'>
 
-	<div>
-		You have liked {{ count($likes) }} photos.
-	</div>
+		<h2>Likes</h2>
 
-	@foreach($likes as $like)
-		{{-- <div class='media'>
-			<img src='/uploads/{{ $photo->image }}' class="pure-img image">
-		</div> --}}
-		
-		<div>
-			{{ $like->photo }}
+		<div class='media-text text'>
+			You have liked {{ count($likes) }} photos.
 		</div>
-	@endforeach
+
+		@foreach($likes as $like)
+
+			@foreach($photos as $photo)
+				@if($photo->id === $like->photo_id)
+					<img src='/uploads/{{ $photo->image }}' class="pure-img tag-photo pure-u-1-2">
+				@endif
+			@endforeach
+
+		@endforeach
+
+	</div>
 
 @endsection
