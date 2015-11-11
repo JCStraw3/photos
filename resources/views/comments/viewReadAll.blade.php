@@ -12,11 +12,15 @@
 
 			@foreach($comments as $comment)
 
-				{{-- <div class='media'>
-					<img src='/uploads/{{ $photo->image }}' class="pure-img image">
-				</div> --}}
+				@foreach($photos as $photo)
+					@if($photo->id === $comment->photo_id)
+						<div class='comment-media'>
+							<img src='/uploads/{{ $photo->image }}' class="pure-img comment-image">
+						</div>
+					@endif
+				@endforeach
 
-				<div class='text'>					
+				<div class='media-text text'>					
 					<a href='/users/{{ $user->id }}'><b>{{ $user->name }}</b></a>
 
 					{{ $comment->comment }}
@@ -30,6 +34,8 @@
 						<a href='/comments/{{ $comment->id }}/edit' class="pure-button button-secondary button-xsmall pull-right"><i class="fa fa-pencil-square-o"></i></a>
 					@endif
 				</div>
+
+				<br />
 
 				<br />
 

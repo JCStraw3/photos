@@ -39,20 +39,17 @@ class CommentController extends Controller {
 			$user = User::findOrFail($id);
 		}
 
-		// foreach($comments as $comment){
+		// Find all photos in the database.
 
-		// 	$id = $comment->photo_id;
-
-		// 	$photo = Photo::findOrFail($id);
-		// }
+		$photos = Photo::all();
 
 		// Return view with variables.
 
 		return view('comments.viewReadAll')
 			->with('comments', $comments)
 			->with('authUser', $authUser)
-			->with('user', $user);
-			// ->with('photo', $photo);
+			->with('user', $user)
+			->with('photos', $photos);
 
 	}
 
