@@ -10,6 +10,12 @@
 
 	<div class='card'>
 
+		@foreach($users as $user)
+			@if($user->id === $photo->user_id)
+				<a href='/user/{{ $user->id }}'><b>{{ $user->name }}</b></a>
+			@endif
+		@endforeach
+
 		@if($photo->user_id === $authUser->id)
 			<form action='/photos/{{ $photo->id }}' method='post' class='pull-right card-header'>
 				<input name='_method' type='hidden' value='delete'>
@@ -60,7 +66,13 @@
 			
 			@foreach($photo->comments as $comment)
 				<div class='text'>
-					<i class="fa fa-circle"></i> {{ $comment->comment }}
+					@foreach($users as $user)
+						@if($user->id === $comment->user_id)
+							<a href='/user/{{ $user->id }}'><b>{{ $user->name }}</b></a>
+						@endif
+					@endforeach
+						
+					{{ $comment->comment }}
 
 					<div class='pull-right'>
 						@if($comment->user_id === $authUser->id)

@@ -76,6 +76,10 @@ class PhotoController extends Controller {
 
 		$photo = Photo::findOrFail($id);
 
+		// Find all users in the database.
+
+		$users = User::all();
+
 		// If logged in user does not own photo and photo is private, return error.
 
 		if($authUser->id !== $photo->user_id){
@@ -88,7 +92,8 @@ class PhotoController extends Controller {
 
 		return view('photos.viewReadOne')
 			->with('photo', $photo)
-			->with('authUser', $authUser);
+			->with('authUser', $authUser)
+			->with('users', $users);
 
 	}
 
