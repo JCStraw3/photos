@@ -72,7 +72,8 @@ h1, h2 {
   display: inline; }
 
 .pure-form-stacked textarea {
-  min-height: 75px; }
+  min-height: 75px;
+  max-width: 560px; }
 
 .media {
   margin-top: 10px; }
