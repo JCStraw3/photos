@@ -62,14 +62,6 @@
 			
 			@foreach($photo->comments as $comment)
 				<div class='text'>
-					@foreach($users as $user)
-						@if($user->id === $comment->user_id)
-							<a href='/user/{{ $user->id }}'><b>{{ $user->name }}</b></a>
-						@endif
-					@endforeach
-						
-					{{ $comment->comment }}
-
 					<div class='pull-right'>
 						@if($comment->user_id === $authUser->id)
 							<a href='/comments/{{ $comment->id }}/edit' class="pure-button button-secondary button-xsmall"><i class="fa fa-pencil-square-o"></i></a>
@@ -80,6 +72,14 @@
 							</form>
 						@endif
 					</div>
+
+					@foreach($users as $user)
+						@if($user->id === $comment->user_id)
+							<a href='/user/{{ $user->id }}'><b>{{ $user->name }}</b></a>
+						@endif
+					@endforeach
+						
+					{{ $comment->comment }}
 				</div>
 			@endforeach
 
