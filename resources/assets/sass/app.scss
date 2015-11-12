@@ -65,6 +65,14 @@ h1, h2 {
 	background-color: $white;
 }
 
+.card-header {
+	margin: 3px;
+}
+
+.card-header-name{
+	margin-left: 6px;
+}
+
 // Button classes
 
 .pure-button {
@@ -110,19 +118,15 @@ h1, h2 {
 	display: inline;
 }
 
-.card-header {
-	margin: 3px;
-}
-
 .pure-form-stacked textarea {
 	min-height: 75px;
 }
 
 // Media classes
 
-// .media {
-// 	margin-top: 29px;
-// }
+.media {
+	margin-top: 10px;
+}
 
 .media-text {
 	margin: 20px;
@@ -209,6 +213,8 @@ h1, h2 {
 	margin-left: 43px;
 }
 
+// Comment classes
+
 .comment-image{
 	max-height: 75px;
 	max-width: 100px;
@@ -217,9 +223,4 @@ h1, h2 {
 
 .comment-media{
 	float: left;
-}
-
-.card-header-name{
-	margin-left: 6px;
-	padding-bottom: 12px;
 }

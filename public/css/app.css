@@ -34,6 +34,12 @@ h1, h2 {
   border-width: 1px;
   background-color: #ffffff; }
 
+.card-header {
+  margin: 3px; }
+
+.card-header-name {
+  margin-left: 6px; }
+
 .pure-button {
   border-radius: 5px;
   color: #ffffff !important; }
@@ -65,11 +71,11 @@ h1, h2 {
 .form {
   display: inline; }
 
-.card-header {
-  margin: 3px; }
-
 .pure-form-stacked textarea {
   min-height: 75px; }
+
+.media {
+  margin-top: 10px; }
 
 .media-text {
   margin: 20px; }
@@ -144,9 +150,5 @@ h1, h2 {
 
 .comment-media {
   float: left; }
-
-.card-header-name {
-  margin-left: 6px;
-  padding-bottom: 12px; }
 
 /*# sourceMappingURL=app.css.map */
