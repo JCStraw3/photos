@@ -53,10 +53,6 @@
 			</div>
 
 			<div class='text'>
-				User: {{ $photo->user_id }}
-			</div>
-
-			<div class='text'>
 				@foreach($photo->tags as $tag)
 					<a href='/tags/{{ $tag->id }}' class="pure-button button-tag button-small">{{ $tag->name }}</a>
 				@endforeach

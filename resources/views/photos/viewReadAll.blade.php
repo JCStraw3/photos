@@ -18,7 +18,7 @@
 
 			@foreach($users as $user)
 				@if($user->id === $photo->user_id)
-					<a href='/user/{{ $user->id }}'><b>{{ $user->name }}</b></a>
+					<a href='/user/{{ $user->id }}' class='card-header-name'><b>{{ $user->name }}</b></a>
 				@endif
 			@endforeach
 
@@ -54,10 +54,6 @@
 
 				<div class='text'>
 					Privacy: {{ $photo->private }}
-				</div>
-
-				<div class='text'>
-					User: {{ $photo->user_id }}
 				</div>
 
 				<div class='text'>

@@ -120,9 +120,9 @@ h1, h2 {
 
 // Media classes
 
-.media {
-	margin-top: 29px;
-}
+// .media {
+// 	margin-top: 29px;
+// }
 
 .media-text {
 	margin: 20px;
@@ -210,11 +210,16 @@ h1, h2 {
 }
 
 .comment-image{
-	max-height: 100px;
+	max-height: 75px;
 	max-width: 100px;
 	margin-right: 20px;
 }
 
 .comment-media{
 	float: left;
+}
+
+.card-header-name{
+	margin-left: 6px;
+	padding-bottom: 12px;
 }
