@@ -20,11 +20,7 @@
 					@endif
 				@endforeach
 
-				<div class='media-text text'>					
-					<a href='/users/{{ $user->id }}'><b>{{ $user->name }}</b></a>
-
-					{{ $comment->comment }}
-
+				<div class='media-text text'>
 					@if($comment->user_id === $authUser->id)
 						<form action='/comments/{{ $comment->id }}' method='post' class='pull-right'>
 							<input name='_method' type='hidden' value='delete'>
@@ -33,6 +29,10 @@
 
 						<a href='/comments/{{ $comment->id }}/edit' class="pure-button button-secondary button-xsmall pull-right"><i class="fa fa-pencil-square-o"></i></a>
 					@endif
+
+					<a href='/users/{{ $user->id }}'><b>{{ $user->name }}</b></a>
+
+					{{ $comment->comment }}
 				</div>
 
 				<br />
