@@ -66,7 +66,7 @@ class UserController extends Controller {
 
 		// Return view with variables.
 
-		return view('user.viewReadOne')
+		return view('user.viewReadOnePublic')
 			->with('authUser', $authUser)
 			->with('user', $user)
 			->with('photos', $photos);

@@ -6,28 +6,30 @@
 
 	@include('partials.flash')
 
+	{{-- Button to view public profile --}}
+
+	<div>
+		<a href='/user/{{ $user->id }}/public' class="pure-button button-tag new-tag-button float-left">Public Profile</a>
+	</div>
+
 	{{-- View a user's profile --}}
 
 	<div class='user-card'>
 
-		@if($authUser->id === $user->id)
-			<div class='card-header'>
-				<a href='/user/{{ $user->id }}/edit' class="pure-button button-secondary button-xsmall pull-right"><i class="fa fa-pencil-square-o"></i></a>
-			</div>
-		@endif
+		<div class='card-header'>
+			<a href='/user/{{ $user->id }}/edit' class="pure-button button-secondary button-xsmall pull-right"><i class="fa fa-pencil-square-o"></i></a>
+		</div>
 
 		<div class='user-media'>
 			@if($user->image)
 				<img src='/uploads/{{ $user->image }}' class="pure-img user-image">
 			@endif
 
-			@if($authUser->id === $user->id)
-				<form action='/user/{{ $user->id }}' method='post' enctype='multipart/form-data'>
-					Select image to upload:
-					<input name='image' type='file'>
-					<input class="pure-button pure-button-primary button-small" name='submit' type='submit' value='Save'>
-				</form>
-			@endif
+			<form action='/user/{{ $user->id }}' method='post' enctype='multipart/form-data'>
+				Select image to upload:
+				<input name='image' type='file'>
+				<input class="pure-button pure-button-primary button-small" name='submit' type='submit' value='Save'>
+			</form>
 		</div>
 
 		<div class='media-text'>
@@ -38,16 +40,12 @@
 			<hr />
 
 			<div class='text'>
-				@if($authUser->id === $user->id)
-					<a href='/comments' class="pure-button button-tag button-small"><i class="fa fa-comment"></i> Comments</a>
+				<a href='/comments' class="pure-button button-tag button-small"><i class="fa fa-comment"></i> Comments</a>
 
-					<a href='/likes' class="pure-button button-tag button-small"><i class="fa fa-star"></i> Likes</a>
-				@endif
+				<a href='/likes' class="pure-button button-tag button-small"><i class="fa fa-star"></i> Likes</a>
 			</div>
 
-			@if($authUser->id === $user->id)
-				<hr />
-			@endif
+			<hr />
 
 			<div class='text'>
 				{{ $user->email }}
