@@ -20,6 +20,10 @@
 			@endif
 		@endforeach
 
+		@if($photo->private === 1)
+			<i class="fa fa-shield"></i>
+		@endif
+
 		@if($photo->user_id === $authUser->id)
 			<form action='/photos/{{ $photo->id }}' method='post' class='pull-right card-header'>
 				<input name='_method' type='hidden' value='delete'>
@@ -50,10 +54,6 @@
 
 			<div class='text'>
 				{{ $photo->description }}
-			</div>
-
-			<div class='text'>
-				Privacy: {{ $photo->private }}
 			</div>
 
 			<div class='text'>

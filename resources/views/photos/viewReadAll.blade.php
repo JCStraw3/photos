@@ -19,18 +19,24 @@
 			@foreach($users as $user)
 				@if($user->id === $photo->user_id)
 					@if($user->id === $authUser->id)
-						<a href='/user/{{ $user->id }}' class='card-header-name'><b>{{ $user->name }}</b></a>
+						<a href='/user/{{ $user->id }}'><b>{{ $user->name }}</b></a>
 					@elseif($user->id !== $authUser->id)
-						<a href='/user/{{ $user->id }}/public' class='card-header-name'><b>{{ $user->name }}</b></a>
+						<a href='/user/{{ $user->id }}/public'><b>{{ $user->name }}</b></a>
 					@endif
 				@endif
 			@endforeach
+
+			@if($photo->private === 1)
+				<i class="fa fa-shield"></i>
+			@endif
 
 			@if($photo->user_id === $authUser->id)
 				<form action='/photos/{{ $photo->id }}' method='post' class='pull-right card-header'>
 					<input name='_method' type='hidden' value='delete'>
 					<button class="pure-button button-error button-xsmall" type='submit'><i class="fa fa-times"></i></button>
 				</form>
+
+				<a href='/photos/{{ $photo->id }}/edit' class="pure-button button-secondary button-xsmall pull-right card-header"><i class="fa fa-pencil-square-o"></i></a>
 			@endif
 
 			<div class='media'>
@@ -54,10 +60,6 @@
 
 				<div class='text'>
 					{{ $photo->description }}
-				</div>
-
-				<div class='text'>
-					Privacy: {{ $photo->private }}
 				</div>
 
 				<div class='text'>
