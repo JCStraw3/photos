@@ -28,24 +28,10 @@ class UserController extends Controller {
 
 		$user = User::findOrFail($id);
 
-		// if($authUser->id !== $user->id){
-
-		// 	$photos = Photo::where(function ($query){
-		// 		$query->where('user_id', '=', $user->id)
-		// 			->where('private', '=', 0);
-		// 	})
-		// 	->latest('id')
-		// 	->get();
-
-		// 	return view('user.viewReadOne')
-		// 		->with('authUser', $authUser)
-		// 		->with('user', $user)
-		// 		->with('photos', $photos);
-		// }
-
 		$photos = Photo::where('user_id', '=', $user->id)
+			->where('private', '=', 0)
 			->latest('id')
-			->get();
+			->paginate(12);
 
 		// Return view with variables.
 
