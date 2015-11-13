@@ -18,7 +18,11 @@
 
 			@foreach($users as $user)
 				@if($user->id === $photo->user_id)
-					<a href='/user/{{ $user->id }}' class='card-header-name'><b>{{ $user->name }}</b></a>
+					@if($user->id === $authUser->id)
+						<a href='/user/{{ $user->id }}' class='card-header-name'><b>{{ $user->name }}</b></a>
+					@elseif($user->id !== $authUser->id)
+						<a href='/user/{{ $user->id }}/public' class='card-header-name'><b>{{ $user->name }}</b></a>
+					@endif
 				@endif
 			@endforeach
 
@@ -79,7 +83,11 @@
 						
 						@foreach($users as $user)
 							@if($user->id === $comment->user_id)
-								<a href='/user/{{ $user->id }}'><b>{{ $user->name }}</b></a>
+								@if($user->id === $authUser->id)
+									<a href='/user/{{ $user->id }}'><b>{{ $user->name }}</b></a>
+								@elseif($user->id !== $authUser->id)
+									<a href='/user/{{ $user->id }}/public'><b>{{ $user->name }}</b></a>
+								@endif
 							@endif
 						@endforeach
 
