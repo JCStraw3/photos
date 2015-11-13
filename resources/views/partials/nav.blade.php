@@ -11,7 +11,7 @@
 
 			<span> | </span>
 
-			<li class='pure-menu-item'><a href='/tags' class='pure-menu-link'>Tags</a></li>
+			<li class='pure-menu-item'><a href='/tags' class='pure-menu-link'><i class="fa fa-tag"></i> Tags</a></li>
 
 			<span> | </span>
 
