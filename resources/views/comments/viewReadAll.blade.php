@@ -15,7 +15,7 @@
 				@foreach($photos as $photo)
 					@if($photo->id === $comment->photo_id)
 						<div class='comment-media'>
-							<img src='/uploads/{{ $photo->image }}' class="pure-img comment-image">
+							<a href='/photos/{{ $photo->id }}'><img src='/uploads/{{ $photo->image }}' class="pure-img comment-image"></a>
 						</div>
 					@endif
 				@endforeach
@@ -34,6 +34,8 @@
 
 					{{ $comment->comment }}
 				</div>
+
+				<br />
 
 				<br />
 

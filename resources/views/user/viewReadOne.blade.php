@@ -9,7 +9,7 @@
 	{{-- Button to view public profile --}}
 
 	<div>
-		<a href='/user/{{ $user->id }}/public' class="pure-button button-tag new-tag-button float-left">Public Profile</a>
+		<a href='/user/{{ $user->id }}/public' class="pure-button button-tag new-tag-button button-small float-left">Public Profile</a>
 	</div>
 
 	{{-- View a user's profile --}}
