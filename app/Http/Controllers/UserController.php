@@ -16,9 +16,40 @@ class UserController extends Controller {
 
 // Views
 
-	// View the user profile page.
+	// View a user's'profile page as the user.
 
 	public function viewReadOne($id){
+
+		// Set logged in user to a variable.
+
+		$authUser = Auth::user();
+
+		// Find the user in the database.
+
+		$user = User::findOrFail($id);
+
+		// If logged in user does not own profile, return error.
+
+		if($authUser->id !== $user->id){
+			return view('errors.403');
+		}
+
+		$photos = Photo::where('user_id', '=', $user->id)
+			->latest('id')
+			->paginate(12);
+
+		// Return view with variables.
+
+		return view('user.viewReadOne')
+			->with('authUser', $authUser)
+			->with('user', $user)
+			->with('photos', $photos);
+
+	}
+
+	// View a user's'profile page as not the user.
+
+	public function viewReadOnePublic($id){
 
 		// Set logged in user to a variable.
 
