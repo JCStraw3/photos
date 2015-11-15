@@ -7,6 +7,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Tag;
+use App\Photo;
 
 use Auth;
 
@@ -49,7 +50,7 @@ class TagController extends Controller {
 
 	}
 
-	// View the page to read one tag.
+	// View the page to read one tag's public photos.
 
 	public function viewReadOne($id){
 
@@ -61,10 +62,40 @@ class TagController extends Controller {
 
 		$tag = Tag::findOrFail($id);
 
+		// Set tag photos into variable.
+
+		$photos = $tag->photos;
+
 		// Return view with variables.
 
 		return view('tags.viewReadOne')
 			->with('tag', $tag)
+			->with('photos', $photos)
+			->with('authUser', $authUser);
+
+	}
+
+	// View the page to read one tag's public and private photos.
+
+	public function viewReadOneAll($id){
+
+		// Set logged in user to a variable.
+
+		$authUser = Auth::user();
+
+		// Find tag in database.
+
+		$tag = Tag::findOrFail($id);
+
+		// Set tag photos into variable.
+
+		$photos = $tag->photos;
+
+		// Return view with variables.
+
+		return view('tags.viewReadOneAll')
+			->with('tag', $tag)
+			->with('photos', $photos)
 			->with('authUser', $authUser);
 
 	}

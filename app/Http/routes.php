@@ -49,6 +49,7 @@ Route::delete('photos/{id}', 'PhotoController@actionDelete');
 Route::get('tags', 'TagController@viewReadAll');
 Route::get('tags/create', 'TagController@viewCreate');
 Route::get('tags/{id}', 'TagController@viewReadOne');
+Route::get('tags/{id}/all', 'TagController@viewReadOneAll');
 Route::get('tags/{id}/edit', 'TagController@viewUpdate');
 Route::post('tags', 'TagController@actionCreate');
 Route::put('tags/{id}', 'TagController@actionUpdate');
