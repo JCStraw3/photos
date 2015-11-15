@@ -12,13 +12,13 @@
 
 		<h2>Login</h2>
 
-		<form action='/auth/login' method='post' class="pure-form pure-form-stacked media-text">
+		<form action='/auth/login' method='post' class='pure-form pure-form-stacked media-text'>
 			<fieldset>
-				<input name='email' type='email' placeholder='Email' class="pure-u-1">
+				<input name='email' type='email' placeholder='Email' class='pure-u-1'>
 
-				<input name='password' type='password' placeholder='Password' class="pure-u-1">
+				<input name='password' type='password' placeholder='Password' class='pure-u-1'>
 
-				<button type='submit' class="pure-button pure-button-primary pure-u-1">Login</button>
+				<button type='submit' class='pure-button pure-button-primary pure-u-1'>Login</button>
 			</fieldset>
 		</form>
 

@@ -16,7 +16,7 @@
 
 			@foreach($photos as $photo)
 				@if($photo->id === $like->photo_id)
-					<img src='/uploads/{{ $photo->image }}' class="pure-img tag-photo pure-u-1-2">
+					<img src='/uploads/{{ $photo->image }}' class='pure-img tag-photo pure-u-1-2'>
 				@endif
 			@endforeach
 

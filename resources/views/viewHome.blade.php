@@ -11,11 +11,11 @@
 		<div class='media-text'>
 
 			<div class='text'>
-				<a href='/auth/login' class="pure-button pure-button-primary pure-u-1">Login</a>
+				<a href='/auth/login' class='pure-button pure-button-primary pure-u-1'>Login</a>
 			</div>
 
 			<div class='text'>
-				<a href='/auth/register' class="pure-button pure-button-primary pure-u-1">Register</a>
+				<a href='/auth/register' class='pure-button pure-button-primary pure-u-1'>Register</a>
 			</div>
 
 		</div>

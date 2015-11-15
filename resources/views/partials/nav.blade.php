@@ -7,11 +7,11 @@
 	<ul class='pure-menu-list pull-right'>
 
 		@if($user)
-			<li class='pure-menu-item'><a href='/photos/create' class='pure-menu-link'><i class="fa fa-plus"></i> Photo</a></li>
+			<li class='pure-menu-item'><a href='/photos/create' class='pure-menu-link'><i class='fa fa-plus'></i> Photo</a></li>
 
 			<span> | </span>
 
-			<li class='pure-menu-item'><a href='/tags' class='pure-menu-link'><i class="fa fa-tag"></i> Tags</a></li>
+			<li class='pure-menu-item'><a href='/tags' class='pure-menu-link'><i class='fa fa-tag'></i> Tags</a></li>
 
 			<span> | </span>
 
@@ -19,7 +19,7 @@
 
 			<span> | </span>
 
-			<li class='pure-menu-item'><a href='/auth/logout' class='pure-menu-link'><i class="fa fa-power-off"></i></a></li>
+			<li class='pure-menu-item'><a href='/auth/logout' class='pure-menu-link'><i class='fa fa-power-off'></i></a></li>
 		@endif
 
 		@if(!$user)

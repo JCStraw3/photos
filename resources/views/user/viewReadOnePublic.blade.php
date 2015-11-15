@@ -12,7 +12,7 @@
 
 		<div class='user-media'>
 			@if($user->image)
-				<img src='/uploads/{{ $user->image }}' class="pure-img user-image">
+				<img src='/uploads/{{ $user->image }}' class='pure-img user-image'>
 			@endif
 		</div>
 
@@ -46,7 +46,7 @@
 
 	<div class='user-photoCard'>
 		@foreach($photos as $photo)
-			<a href='/photos/{{ $photo->id }}'><img src='/uploads/{{ $photo->image }}' class="pure-img user-photo pure-u-1-3"></a>
+			<a href='/photos/{{ $photo->id }}'><img src='/uploads/{{ $photo->image }}' class='pure-img user-photo pure-u-1-3'></a>
 		@endforeach
 	</div>
 

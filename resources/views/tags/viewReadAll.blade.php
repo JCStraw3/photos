@@ -5,9 +5,9 @@
 	{{-- Tag navbar --}}
 
 	<div>
-		<a href='/tags' class="pure-button button-tag new-tag-button button-small float-left"><i class="fa fa-tag"></i> Tags</a>
+		<a href='/tags' class='pure-button button-tag new-tag-button button-small float-left'><i class='fa fa-tag'></i> Tags</a>
 
-		<a href='/tags/create' class="pure-button pure-button-primary new-tag-button button-small float-left"><i class="fa fa-plus"></i> Tag</a>
+		<a href='/tags/create' class='pure-button pure-button-primary new-tag-button button-small float-left'><i class='fa fa-plus'></i> Tag</a>
 	</div>
 
 	<!-- Flash messaging -->
@@ -23,7 +23,7 @@
 		@foreach($tags as $tag)
 
 			<div class='media-text pure-u-1-4'>
-				<a href='/tags/{{ $tag->id }}' class="pure-button button-tag button-small pure-u-1">{{ $tag->name }}</a>
+				<a href='/tags/{{ $tag->id }}' class='pure-button button-tag button-small pure-u-1'>{{ $tag->name }}</a>
 			</div>
 
 		@endforeach
