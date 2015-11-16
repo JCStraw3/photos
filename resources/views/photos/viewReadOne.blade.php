@@ -93,10 +93,10 @@
 
 			<hr />
 
-			<form action='/comments' method='post' class='pure-form pure-form-stacked'>
+			<form id='comment' action='/comments' method='post' class='pure-form pure-form-stacked'>
 				<fieldset>
-					<input name='photo_id' type='hidden' value='{{ $photo->id }}'>
-					<textarea name='comment' placeholder='Comment' class='pure-input-1'></textarea>
+					<input id='commentPhotoId' name='photo_id' type='hidden' value='{{ $photo->id }}'>
+					<textarea id='commentComment' name='comment' placeholder='Comment' class='pure-input-1'></textarea>
 					<button class='pure-button pure-button-primary pure-input-1' type='submit'>Comment</button>
 				</fieldset>
 			</form>
@@ -104,5 +104,24 @@
 		</div>
 
 	</div>
+
+	{{-- Ajax comment form script --}}
+
+	<script>
+		$('#comment').submit(function(event){
+			event.preventDefault();
+			var action = $('#comment').attr('action');
+			$.ajax({
+				url: action,
+				method: 'post',
+				data: {
+					photo_id: $('#commentPhotoId').val(),
+					comment: $('#commentComment').val(),
+				}
+			})
+			.done(function(data){
+			});
+		});
+	</script>
 
 @endsection
