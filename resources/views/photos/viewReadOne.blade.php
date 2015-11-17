@@ -65,7 +65,7 @@
 			<hr />
 			
 			@foreach($photo->comments as $comment)
-				<div class='text'>
+				<div id='comments' class='text'>
 					<div class='pull-right'>
 						@if($comment->user_id === $authUser->id)
 							<a href='/comments/{{ $comment->id }}/edit' class='pure-button button-secondary button-xsmall'><i class='fa fa-pencil-square-o'></i></a>
@@ -120,6 +120,9 @@
 				}
 			})
 			.done(function(data){
+				data: {
+					comment: $('#commentComment').val('')
+				}
 			});
 		});
 	</script>
