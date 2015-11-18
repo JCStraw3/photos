@@ -120,9 +120,8 @@
 				}
 			})
 			.done(function(data){
-				data: {
-					comment: $('#commentComment').val('')
-				}
+				$('#comments').append();
+				$('#commentComment').val('');
 			});
 		});
 	</script>
