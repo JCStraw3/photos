@@ -39,11 +39,11 @@
 
 		<div class='media-text'>
 
-			<div class='pull-right'>
+			<div id='likes' class='pull-right'>
 				{{ count($photo->likes) }} likes.
 
-				<form action='/likes' method='post' class='form'>
-					<input name='photo_id' type='hidden' value='{{ $photo->id }}'>
+				<form id='like' action='/likes' method='post' class='form'>
+					<input id='likePhotoId' name='photo_id' type='hidden' value='{{ $photo->id }}'>
 					<button class='pure-button pure-button-primary button-xsmall' type='submit'><i class='fa fa-star'></i></button>
 				</form>
 			</div>
@@ -64,36 +64,38 @@
 
 			<hr />
 			
-			@foreach($photo->comments as $comment)
-				<div id='comments' class='text'>
-					<div class='pull-right'>
-						@if($comment->user_id === $authUser->id)
-							<a href='/comments/{{ $comment->id }}/edit' class='pure-button button-secondary button-xsmall'><i class='fa fa-pencil-square-o'></i></a>
+			<div id='comments'>
+				@foreach($photo->comments as $comment)
+					<div id='comment' class='text'>
+						<div class='pull-right'>
+							@if($comment->user_id === $authUser->id)
+								<a href='/comments/{{ $comment->id }}/edit' class='pure-button button-secondary button-xsmall'><i class='fa fa-pencil-square-o'></i></a>
 
-							<form action='/comments/{{ $comment->id }}' method='post' class='form'>
-								<input name='_method' type='hidden' value='delete'>
-								<button class='pure-button button-error button-xsmall' type='submit'><i class='fa fa-times'></i></button>
-							</form>
-						@endif
-					</div>
-
-					@foreach($users as $user)
-						@if($user->id === $comment->user_id)
-							@if($user->id === $authUser->id)
-								<a href='/user/{{ $user->id }}'><b>{{ $user->name }}</b></a>
-							@elseif($user->id !== $authUser->id)
-								<a href='/user/{{ $user->id }}/public'><b>{{ $user->name }}</b></a>
+								<form action='/comments/{{ $comment->id }}' method='post' class='form'>
+									<input name='_method' type='hidden' value='delete'>
+									<button class='pure-button button-error button-xsmall' type='submit'><i class='fa fa-times'></i></button>
+								</form>
 							@endif
-						@endif
-					@endforeach
-						
-					{{ $comment->comment }}
-				</div>
-			@endforeach
+						</div>
+
+						@foreach($users as $user)
+							@if($user->id === $comment->user_id)
+								@if($user->id === $authUser->id)
+									<a href='/user/{{ $user->id }}'><b>{{ $user->name }}</b></a>
+								@elseif($user->id !== $authUser->id)
+									<a href='/user/{{ $user->id }}/public'><b>{{ $user->name }}</b></a>
+								@endif
+							@endif
+						@endforeach
+							
+						{{ $comment->comment }}
+					</div>
+				@endforeach
+			</div>
 
 			<hr />
 
-			<form id='comment' action='/comments' method='post' class='pure-form pure-form-stacked'>
+			<form id='commentForm' action='/comments' method='post' class='pure-form pure-form-stacked'>
 				<fieldset>
 					<input id='commentPhotoId' name='photo_id' type='hidden' value='{{ $photo->id }}'>
 					<textarea id='commentComment' name='comment' placeholder='Comment' class='pure-input-1'></textarea>
@@ -108,9 +110,9 @@
 	{{-- Ajax comment form script --}}
 
 	<script>
-		$('#comment').submit(function(event){
+		$('#commentForm').submit(function(event){
 			event.preventDefault();
-			var action = $('#comment').attr('action');
+			var action = $('#commentForm').attr('action');
 			$.ajax({
 				url: action,
 				method: 'post',
@@ -120,8 +122,28 @@
 				}
 			})
 			.done(function(data){
-				$('#comments').append();
+				var commentUpdate = $('#comment').data();
+				$('#comments').append(commentUpdate);
 				$('#commentComment').val('');
+			});
+		});
+	</script>
+
+	<script>
+		$('#like').submit(function(event){
+			event.preventDefault();
+			var action = $('#like').attr('action');
+			$.ajax({
+				url: action,
+				method: 'post',
+				data: {
+					photo_id: $('#likePhotoId').val(),
+				}
+			})
+			.done(function(data){
+				// var likeCount = $('#likes').data();
+				// $('#likes').append(likeCount);
+				alert('You have liked a comment.');
 			});
 		});
 	</script>
