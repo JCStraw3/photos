@@ -41,7 +41,7 @@
 
 			<div id='likes' class='pull-right'>
 				{{ count($photo->likes) }} likes.
-				
+
 				<form id='like' action='/likes' method='post' class='form'>
 					<input id='likePhotoId' name='photo_id' type='hidden' value='{{ $photo->id }}'>
 					<button class='pure-button pure-button-primary button-xsmall' type='submit'><i class='fa fa-star'></i></button>
@@ -71,8 +71,8 @@
 							@if($comment->user_id === $authUser->id)
 								<a href='/comments/{{ $comment->id }}/edit' class='pure-button button-secondary button-xsmall'><i class='fa fa-pencil-square-o'></i></a>
 
-								<form action='/comments/{{ $comment->id }}' method='post' class='form'>
-									<input name='_method' type='hidden' value='delete'>
+								<form id='commentDeleteForm' action='/comments/{{ $comment->id }}' method='post' class='form'>
+									<input id='commentDelete' name='_method' type='hidden' value='delete'>
 									<button class='pure-button button-error button-xsmall' type='submit'><i class='fa fa-times'></i></button>
 								</form>
 							@endif
@@ -145,6 +145,25 @@
 				// var likeCount = $('#likes').data();
 				// $('#likes').append(likeCount);
 				alert('You have liked a photo.');
+			});
+		});
+	</script>
+
+	{{-- Ajax delete comment script --}}
+
+	<script>
+		$('#commentDeleteForm').submit(function(event){
+			event.preventDefault();
+			var action = $('#commentDeleteForm').attr('action');
+			$.ajax({
+				url: action,
+				method: 'post',
+				data: {
+					_method: $('#commentDelete').val(),
+				}
+			})
+			.done(function(data){
+				$('#comment').remove();
 			});
 		});
 	</script>
