@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Photo;
 use App\Tag;
 use App\User;
+use App\Like;
 
 use Auth;
 use Uuid;
