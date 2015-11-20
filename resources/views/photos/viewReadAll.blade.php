@@ -6,15 +6,11 @@
 
 	@include('partials.flash')
 
-	{{-- Pagination links --}}
-
-	{!! $photos->render() !!}
-
 	{{-- View all photos --}}
 
 	@foreach ($photos as $photo)
 
-		<div class='card'>
+		<div id='photo' class='card'>
 
 			@foreach($users as $user)
 				@if($user->id === $photo->user_id)
@@ -31,8 +27,8 @@
 			@endif
 
 			@if($photo->user_id === $authUser->id)
-				<form action='/photos/{{ $photo->id }}' method='post' class='pull-right card-header'>
-					<input name='_method' type='hidden' value='delete'>
+				<form id='photoDeleteForm' action='/photos/{{ $photo->id }}' method='post' class='pull-right card-header'>
+					<input id='photoDelete' name='_method' type='hidden' value='delete'>
 					<button class='pure-button button-error button-xsmall' type='submit'><i class='fa fa-times'></i></button>
 				</form>
 
@@ -176,6 +172,25 @@
 			})
 			.done(function(data){
 				$('#comment').remove();
+			});
+		});
+	</script>
+
+	{{-- Ajax delete photo script --}}
+
+	<script>
+		$('#photoDeleteForm').submit(function(event){
+			event.preventDefault();
+			var action = $('#photoDeleteForm').attr('action');
+			$.ajax({
+				url: action,
+				method: 'post',
+				data: {
+					_method: $('#photoDelete').val(),
+				}
+			})
+			.done(function(data){
+				$('#photo').remove();
 			});
 		});
 	</script>
