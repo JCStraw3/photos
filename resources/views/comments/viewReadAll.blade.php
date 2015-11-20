@@ -51,6 +51,8 @@
 
 	</div>
 
+	{{-- Ajax delete comment script --}}
+
 	<script>
 		$('#commentDeleteForm').submit(function(event){
 			event.preventDefault();

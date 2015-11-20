@@ -98,7 +98,7 @@
 			<form id='commentForm' action='/comments' method='post' class='pure-form pure-form-stacked'>
 				<fieldset>
 					<input id='commentPhotoId' name='photo_id' type='hidden' value='{{ $photo->id }}'>
-					<textarea id='commentComment' name='comment' placeholder='Comment' class='pure-input-1'></textarea>
+					<textarea id='commentTextarea' name='comment' placeholder='Comment' class='pure-input-1'></textarea>
 					<button class='pure-button pure-button-primary pure-input-1' type='submit'>Comment</button>
 				</fieldset>
 			</form>
@@ -118,17 +118,19 @@
 				method: 'post',
 				data: {
 					photo_id: $('#commentPhotoId').val(),
-					comment: $('#commentComment').val(),
+					comment: $('#commentTextarea').val(),
 				}
 			})
 			.done(function(data){
 				// var commentUpdate = $('#comment').data();
 				// $('#comments').append(commentUpdate);
-				$('#commentComment').val('');
+				$('#commentTextarea').val('');
 				alert('You have commented on a photo.');
 			});
 		});
 	</script>
+
+	{{-- Ajax like form script --}}
 
 	<script>
 		$('#like').submit(function(event){

@@ -99,10 +99,10 @@
 
 				<hr />
 
-				<form action='/comments' method='post' class='pure-form pure-form-stacked'>
+				<form id='commentForm' action='/comments' method='post' class='pure-form pure-form-stacked'>
 					<fieldset>
-						<input name='photo_id' type='hidden' value='{{ $photo->id }}'>
-						<textarea name='comment' placeholder='Comment' class='pure-input-1'></textarea>
+						<input id='commentPhotoId' name='photo_id' type='hidden' value='{{ $photo->id }}'>
+						<textarea id='commentTextarea' name='comment' placeholder='Comment' class='pure-input-1'></textarea>
 						<button class='pure-button pure-button-primary pure-input-1' type='submit'>Comment</button>
 					</fieldset>
 				</form>
@@ -118,5 +118,26 @@
 	{{-- Pagination links --}}
 
 	{!! $photos->render() !!}
+
+	{{-- Ajax comment form script --}}
+
+	<script>
+		$('#commentForm').submit(function(event){
+			event.preventDefault();
+			var action = $('#commentForm').attr('action');
+			$.ajax({
+				url: action,
+				method: 'post',
+				data: {
+					photo_id: $('#commentPhotoId').val(),
+					comment: $('#commentTextarea').val(),
+				}
+			})
+			.done(function(data){
+				$('#commentTextarea').val('');
+				alert('You have commented on a photo');
+			});
+		});
+	</script>
 
 @endsection
