@@ -28,6 +28,7 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 
 // User routes.
 
+Route::get('user/all', 'UserController@viewReadAll');
 Route::get('user/{id}', 'UserController@viewReadOne');
 Route::get('user/{id}/public', 'UserController@viewReadOnePublic');
 Route::get('user/{id}/edit', 'UserController@viewUpdate');

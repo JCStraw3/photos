@@ -15,6 +15,10 @@
 
 			<span> | </span>
 
+			<li class='pure-menu-item'><a href='/user/all' class='pure-menu-link'>Users</a></li>
+
+			<span> | </span>
+
 			<li class='pure-menu-item'><a href='/user/{{ $user->id }}' class='pure-menu-link'>{{ $user->name }}</a></li>
 
 			<span> | </span>

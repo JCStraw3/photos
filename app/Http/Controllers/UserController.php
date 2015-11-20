@@ -16,7 +16,27 @@ class UserController extends Controller {
 
 // Views
 
-	// View a user's'profile page as the user.
+	// View all users.
+
+	public function viewReadAll(){
+
+		// Set logged in user to a variable.
+
+		$authUser = Auth::user();
+
+		// Find all users in the database.
+
+		$users= User::all();
+
+		// Return view with variables.
+
+		return view('user.viewReadAll')
+			->with('authUser', $authUser)
+			->with('users', $users);
+
+	}
+
+	// View a user's profile page as the user.
 
 	public function viewReadOne($id){
 
@@ -47,7 +67,7 @@ class UserController extends Controller {
 
 	}
 
-	// View a user's'profile page as not the user.
+	// View a user's profile page as not the user.
 
 	public function viewReadOnePublic($id){
 
