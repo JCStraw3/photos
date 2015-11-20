@@ -45,11 +45,11 @@
 
 			<div class='media-text'>
 
-				<div class='pull-right'>
+				<div id='likes' class='pull-right'>
 					{{ count($photo->likes) }} likes.
 
-					<form action='/likes' method='post' class='form'>
-						<input name='photo_id' type='hidden' value='{{ $photo->id }}'>
+					<form id='like' action='/likes' method='post' class='form'>
+						<input id='likePhotoId' name='photo_id' type='hidden' value='{{ $photo->id }}'>
 						<button class='pure-button pure-button-primary button-xsmall' type='submit'><i class='fa fa-star'></i></button>
 					</form>
 				</div>
@@ -136,6 +136,25 @@
 			.done(function(data){
 				$('#commentTextarea').val('');
 				alert('You have commented on a photo');
+			});
+		});
+	</script>
+
+	{{-- Ajax like form script --}}
+
+	<script>
+		$('#like').submit(function(event){
+			event.preventDefault();
+			var action = $('#like').attr('action');
+			$.ajax({
+				url: action,
+				method: 'post',
+				data: {
+					photo_id: $('#likePhotoId').val(),
+				}
+			})
+			.done(function(data){
+				alert('You have liked a photo.');
 			});
 		});
 	</script>
