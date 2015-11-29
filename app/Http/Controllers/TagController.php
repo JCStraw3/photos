@@ -161,11 +161,5 @@ class TagController extends Controller {
 		return redirect('/tags/'.$tag->id);
 
 	}
-
-	// Delete a tag from the database.
-
-	public function actionDelete(){
-
-	}
 	
 }
