@@ -113,17 +113,18 @@
 		$('#commentForm').submit(function(event){
 			event.preventDefault();
 			var action = $('#commentForm').attr('action');
+			var newComment = {
+					photo_id: $('#commentPhotoId').val(),
+					comment: $('#commentTextarea').val(),
+				};
 			$.ajax({
 				url: action,
 				method: 'post',
-				data: {
-					photo_id: $('#commentPhotoId').val(),
-					comment: $('#commentTextarea').val(),
-				}
+				data: newComment,
 			})
 			.done(function(data){
-				// var commentUpdate = $('#comment').data();
-				// $('#comments').append(commentUpdate);
+				// var newComment = 
+				// $('#comments').append(data.newComment);
 				$('#commentTextarea').val('');
 				alert('You have commented on a photo.');
 			});
@@ -145,7 +146,7 @@
 			})
 			.done(function(data){
 				// var likeCount = $('#likes').data();
-				// $('#likes').append(likeCount);
+				// $('#likes').append(data);
 				alert('You have liked a photo.');
 			});
 		});

@@ -56,7 +56,7 @@ class UserController extends Controller {
 
 		$photos = Photo::where('user_id', '=', $user->id)
 			->latest('id')
-			->paginate(12);
+			->paginate(9);
 
 		// Return view with variables.
 
