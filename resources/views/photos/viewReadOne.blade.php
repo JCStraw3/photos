@@ -123,10 +123,11 @@
 				data: newComment,
 			})
 			.done(function(data){
-				// var newComment = 
-				// $('#comments').append(data.newComment);
+				// var newComment = $('#comment').last();
+				// $('#comments').append(newComment);
 				$('#commentTextarea').val('');
 				alert('You have commented on a photo.');
+				console.log(data);
 			});
 		});
 	</script>
