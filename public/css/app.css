@@ -8,6 +8,11 @@ a, a:link, a:visited {
 h1, h2 {
   text-align: center; }
 
+footer {
+  clear: both;
+  text-align: center;
+  margin-bottom: 2em; }
+
 .pure-menu {
   background-color: #800040;
   color: white;
