@@ -172,7 +172,7 @@
 					_method: method,
 				}
 			})
-			.done(function(data){
+			.done(function(){
 				comment.remove();
 			});
 		});
