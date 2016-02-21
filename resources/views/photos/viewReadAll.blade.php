@@ -178,25 +178,25 @@
 		});
 	</script>
 
-	{{-- Ajax delete photo script --}}
+	{{-- jQuery delete photo --}}
 
 	<script>
-		$('.photo').submit(function(event){
-			event.preventDefault();
-			var photo = this;
-			var action = $(this).find('.photoDeleteForm').attr('action');
-			var method = $(this).find('.photoDelete').val();
-			$.ajax({
-				url: action,
-				method: 'post',
-				data: {
-					_method: method,
-				}
-			})
-			.done(function(){
-				photo.remove();
-			});
-		});
+		// $('.photo').submit(function(event){
+		// 	event.preventDefault();
+		// 	var photo = this;
+		// 	var action = $(this).find('.photoDeleteForm').attr('action');
+		// 	var method = $(this).find('.photoDelete').val();
+		// 	$.ajax({
+		// 		url: action,
+		// 		method: 'post',
+		// 		data: {
+		// 			_method: method,
+		// 		}
+		// 	})
+		// 	.done(function(){
+		// 		photo.remove();
+		// 	});
+		// });
 	</script>
 
 @endsection
