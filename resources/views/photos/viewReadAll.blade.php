@@ -68,13 +68,13 @@
 
 				<div id='comments'>
 					@foreach($photo->comments as $comment)
-						<div id='comment' class='text'>
+						<div class='text comment'>
 							<div class='pull-right'>
 								@if($comment->user_id === $authUser->id)
 									<a href='/comments/{{ $comment->id }}/edit' class='pure-button button-secondary button-xsmall'><i class='fa fa-pencil-square-o'></i></a>
 
-									<form id='commentDeleteForm' action='/comments/{{ $comment->id }}' method='post' class='form'>
-										<input id='commentDelete' name='_method' type='hidden' value='delete'>
+									<form action='/comments/{{ $comment->id }}' method='post' class='form commentDeleteForm'>
+										<input class='commentDelete' name='_method' type='hidden' value='delete'>
 										<button class='pure-button button-error button-xsmall' type='submit'><i class='fa fa-times'></i></button>
 									</form>
 								@endif
@@ -157,21 +157,23 @@
 		});
 	</script>
 
-	{{-- Ajax delete comment script --}}
+	{{-- jQuery delete comment --}}
 
 	<script>
-		$('#commentDeleteForm').submit(function(event){
+		$('.comment').submit(function(event){
 			event.preventDefault();
-			var action = $('#commentDeleteForm').attr('action');
+			var comment = this;
+			var action = $(this).find('.commentDeleteForm').attr('action');
+			var method = $(this).find('.commentDelete').val();
 			$.ajax({
 				url: action,
 				method: 'post',
 				data: {
-					_method: $('#commentDelete').val(),
+					_method: method,
 				}
 			})
 			.done(function(data){
-				$('#comment').remove();
+				comment.remove();
 			});
 		});
 	</script>

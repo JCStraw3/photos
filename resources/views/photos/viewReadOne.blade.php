@@ -158,7 +158,7 @@
 		});
 	</script>
 
-	{{-- Ajax delete comment script --}}
+	{{-- jQuery delete comment --}}
 
 	<script>
 		$('.comment').submit(function(event){
