@@ -10,7 +10,7 @@
 
 	@foreach ($photos as $photo)
 
-		<div id='photo' class='card'>
+		<div class='card photo'>
 
 			@foreach($users as $user)
 				@if($user->id === $photo->user_id)
@@ -27,8 +27,8 @@
 			@endif
 
 			@if($photo->user_id === $authUser->id)
-				<form id='photoDeleteForm' action='/photos/{{ $photo->id }}' method='post' class='pull-right card-header'>
-					<input id='photoDelete' name='_method' type='hidden' value='delete'>
+				<form action='/photos/{{ $photo->id }}' method='post' class='pull-right card-header photoDeleteForm'>
+					<input class='photoDelete' name='_method' type='hidden' value='delete'>
 					<button class='pure-button button-error button-xsmall' type='submit'><i class='fa fa-times'></i></button>
 				</form>
 
@@ -181,18 +181,20 @@
 	{{-- Ajax delete photo script --}}
 
 	<script>
-		$('#photoDeleteForm').submit(function(event){
+		$('.photo').submit(function(event){
 			event.preventDefault();
-			var action = $('#photoDeleteForm').attr('action');
+			var photo = this;
+			var action = $(this).find('.photoDeleteForm').attr('action');
+			var method = $(this).find('.photoDelete').val();
 			$.ajax({
 				url: action,
 				method: 'post',
 				data: {
-					_method: $('#photoDelete').val(),
+					_method: method,
 				}
 			})
-			.done(function(data){
-				$('#photo').remove();
+			.done(function(){
+				photo.remove();
 			});
 		});
 	</script>
