@@ -44,7 +44,7 @@
 
 				<form id='like' action='/likes' method='post' class='form'>
 					<input id='likePhotoId' name='photo_id' type='hidden' value='{{ $photo->id }}'>
-					<button class='pure-button pure-button-primary button-xsmall' type='submit'><i class='fa fa-star'></i></button>
+					<button id='likeButton' class='pure-button pure-button-primary button-xsmall' type='submit'><i class='fa fa-star'></i></button>
 				</form>
 			</div>
 
@@ -112,7 +112,7 @@
 	<script>
 		$('#commentForm').submit(function(event){
 			event.preventDefault();
-			var action = $('#commentForm').attr('action');
+			var action = $(this).attr('action');
 			var newComment = {
 					photo_id: $('#commentPhotoId').val(),
 					comment: $('#commentTextarea').val(),
@@ -121,15 +121,16 @@
 				url: action,
 				method: 'post',
 				data: newComment,
+				dataType: 'json',
+				error: function(result){
+					console.log(result);
+				}
 			})
 			.done(function(data){
-				// var newComment = $('#comment').last();
-				// $('#comments').append(newComment);
+				var comment = "<div class='text comment'>" + data.comment +"</div>"
+				$('#comments').append(comment);
 				$('#commentTextarea').val('');
-				alert('You have commented on a photo.');
 				console.log(data);
-				// try using $(this).after(newComment);
-				// closest('id').append(newcomment)
 			});
 		});
 	</script>
@@ -139,15 +140,20 @@
 	<script>
 		$('#like').submit(function(event){
 			event.preventDefault();
-			var action = $('#like').attr('action');
+			var action = $(this).attr('action');
+			var photo_id = $(this).find('#likePhotoId').val();
+			// console.log(action);
+			// console.log(photo_id);
 			$.ajax({
 				url: action,
 				method: 'post',
 				data: {
-					photo_id: $('#likePhotoId').val(),
+					photo_id: photo_id,
 				}
 			})
 			.done(function(data){
+				// $('#likeButton').addClass('.pure-button-primary');
+
 				// var likeCount = $('#likes').data();
 				// $('#likes').append(data);
 				alert('You have liked a photo.');

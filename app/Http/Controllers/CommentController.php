@@ -112,7 +112,7 @@ class CommentController extends Controller {
 
 		\Session::flash('flash_message', 'You have successfully commented on a photo.');
 
-		return redirect('/photos');
+		return json_encode($comment);
 
 	}
 
