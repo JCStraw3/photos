@@ -23,7 +23,9 @@ footer {
 
 .image {
   max-height: 600px;
-  max-width: 600px; }
+  max-width: 600px;
+  display: block;
+  margin: auto; }
 
 .pull-right {
   text-align: right; }
